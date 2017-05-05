@@ -1,3 +1,44 @@
+#Clone the repository: https://github.com/ambikesh1982/my-app-foolong.git
+
+Goto the my-app-foolong directory
+
+Run below commands
+
+	1. npm install
+
+	2. npm install --save @angular/material
+
+	3. npm install --save @angular/animations
+
+	4. ng serve
+
+Now open localhost in chrome browser to see the Web-App.
+
+Pushing your changes to the repository:
+
+	1. Check modified and new files in your local repository. Files shown in RED color are modified or new ones.
+
+	git status
+
+	2. Add the files that you have modified
+
+	git add <filename>
+
+	3. Again check the status. All files should be in green.
+
+	git status
+
+	4. Once you are ready to commit the changes, run the following command.
+
+	git commit -m "Your comment on this change"
+
+	5. Finally push the changes into the repository, so that everyone can use them.
+
+	git push -u origin master
+
+Check what is new in the repository.
+
+
 # MyAppFoolong
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
