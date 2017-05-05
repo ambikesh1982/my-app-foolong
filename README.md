@@ -1,8 +1,9 @@
 #Clone the repository: https://github.com/ambikesh1982/my-app-foolong.git
 
-Goto the my-app-foolong directory
+	git clone https://github.com/ambikesh1982/my-app-foolong.git
 
-Run below commands
+Above command will create my-app-foolong directory in your local machine.
+Now goto the my-app-foolong directory and run below commands-
 
 	1. npm install
 
@@ -18,23 +19,23 @@ Pushing your changes to the repository:
 
 	1. Check modified and new files in your local repository. Files shown in RED color are modified or new ones.
 
-	git status
+		git status
 
 	2. Add the files that you have modified
 
-	git add <filename>
+		git add <filename>
 
 	3. Again check the status. All files should be in green.
 
-	git status
+		git status
 
 	4. Once you are ready to commit the changes, run the following command.
 
-	git commit -m "Your comment on this change"
+		git commit -m "Your comment on this change"
 
 	5. Finally push the changes into the repository, so that everyone can use them.
 
-	git push -u origin master
+		git push -u origin master
 
 Check what is new in the repository.
 
