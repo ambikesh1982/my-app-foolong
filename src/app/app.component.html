@@ -1,3 +1,49 @@
-<h1>
-  {{title}}
-</h1>
+  <md-sidenav-container fullscreen>
+    <md-sidenav #start mode="over" style="width: 300px;" [opened]="false">
+      <md-nav-list>
+        <md-list-item>Home</md-list-item>
+        <md-list-item>My Orders</md-list-item>
+        <md-list-item>Cart</md-list-item>
+        <md-list-item>Wish List</md-list-item>
+        <md-list-item>Language</md-list-item>
+        <md-list-item>Download APP</md-list-item>
+        <md-list-item>Help Center</md-list-item>
+        <md-list-item>Feedback</md-list-item>
+      </md-nav-list>
+    </md-sidenav>
+  <md-toolbar color="primary">
+    <button md-icon-button (click)="start.toggle()">
+      <md-icon>menu</md-icon>
+    </button>  
+    <span style="padding: 5px">{{title}}</span>
+      <button md-icon-button><md-icon>search</md-icon></button>
+      <md-input-container>
+        <input mdInput>
+      </md-input-container>
+      <!--input md-input
+        type="search" 
+        placeholder="Search" 
+        style="outline: none;border: none;background: #FAFAFA;"-->
+      <button md-icon-button><md-icon>shopping_cart</md-icon></button>
+  </md-toolbar>
+  <md-tab-group>
+  <md-tab label="Instant Order">
+  <app-food-item></app-food-item>
+  </md-tab>
+  <md-tab label="Pre Order">
+    <md-card>PreOrder Now!</md-card>  
+  </md-tab>
+   <md-tab label="Make a request">
+    <md-card>Please serve this!</md-card>  
+  </md-tab>
+</md-tab-group>
+    <button md-fab class="style-mdfab">
+      <md-icon>add</md-icon>
+    </button>
+    <hr>
+  <footer style="position: fixed; bottom:0">
+    <p>Foolong</p>
+  </footer>
+  </md-sidenav-container>
+
+  

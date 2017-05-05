@@ -1,0 +1,10 @@
+.example-card {
+  width: 250px;
+}
+
+.example-header-image {
+  background-size: cover;
+}
+.scroll.right{
+  overflow-x:scroll;
+}
