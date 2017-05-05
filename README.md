@@ -39,6 +39,7 @@ Pushing your changes to the repository:
 
 Check what is new in the repository.
 
+	git pull
 
 # MyAppFoolong
 
