@@ -41,9 +41,49 @@ Check what is new in the repository.
 
 	git pull
 
+
 # MyAppFoolong
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+
+
+
+################################################################################
+# Media queries to be used to create responsive layout. 
+Below is the standard setting for all different kind of screens available today.
+################################################################################
+
+Put these media queries into your style.css file.
+
+ /*==========  Mobile First Method  ==========*/
+
+    /* Custom, iPhone Retina */ 
+    @media only screen and (min-width : 320px) {
+
+    }
+
+    /* Extra Small Devices, Phones */ 
+    @media only screen and (min-width : 480px) {
+
+    }
+
+    /* Small Devices, Tablets */
+    @media only screen and (min-width : 768px) {
+
+    }
+
+    /* Medium Devices, Desktops */
+    @media only screen and (min-width : 992px) {
+
+    }
+
+    /* Large Devices, Wide Screens */
+    @media only screen and (min-width : 1200px) {
+
+    }
+
+###########################################################################
+###########################################################################
 
 ## Development server
 
