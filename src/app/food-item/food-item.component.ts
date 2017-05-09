@@ -7,11 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FoodItemComponent implements OnInit {
     
-    tiles = [
-    {text: 'One', cols: 1, rows: 1, color: 'white', url: '../../src/resources/images/image-1.jpg'},
-    {text: 'Two', cols: 1, rows: 1, color: 'white', url: '../../src/resources/images/image-2.jpg'},
-    {text: 'Three', cols: 1, rows: 1, color: 'white', url: '../../src/resources/images/image-3.jpg'},
-    {text: 'One', cols: 1, rows: 1, color: 'white', url: '../../src/resources/images/image-1.jpg'},
+    cards = [
+    {text: 'One', url: '../../src/assets/images/image-1.jpg'},
+    {text: 'Two', url: '../../src/assets/images/image-2.jpg'},
+    {text: 'Three', url: '../../src/assets/images/image-3.jpg'},
+    {text: 'One', url: '../../src/assets/images/image-1.jpg'},
+    {text: 'Two', url: '../../src/assets/images/image-2.jpg'},
+    {text: 'Three', url: '../../src/assets/images/image-3.jpg'},
   ];
 
   constructor() { }

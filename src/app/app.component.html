@@ -1,4 +1,6 @@
+<div>
   <md-sidenav-container fullscreen>
+    <!-- MD SIDENAV: START -->
     <md-sidenav #start mode="over" style="width: 300px;" [opened]="false">
       <md-nav-list>
         <md-list-item>Home</md-list-item>
@@ -11,39 +13,45 @@
         <md-list-item>Feedback</md-list-item>
       </md-nav-list>
     </md-sidenav>
-  <md-toolbar color="primary">
-    <button md-icon-button (click)="start.toggle()">
-      <md-icon>menu</md-icon>
-    </button>  
-    <span style="padding: 5px">{{title}}</span>
-      <button md-icon-button><md-icon>search</md-icon></button>
-      <md-input-container>
-        <input mdInput>
-      </md-input-container>
-      <!--input md-input
-        type="search" 
-        placeholder="Search" 
-        style="outline: none;border: none;background: #FAFAFA;"-->
+    <!-- MD SIDENAV: END -->
+
+    <!-- Component-1: MD Toolbar: START -->
+    <md-toolbar>
+      <div>
+        <button md-icon-button (click)="start.toggle()">
+              <md-icon>menu</md-icon>
+          </button> Foolong
+      </div>
       <button md-icon-button><md-icon>shopping_cart</md-icon></button>
-  </md-toolbar>
-  <md-tab-group>
-  <md-tab label="Instant Order">
-  <app-food-item></app-food-item>
-  </md-tab>
-  <md-tab label="Pre Order">
-    <md-card>PreOrder Now!</md-card>  
-  </md-tab>
-   <md-tab label="Make a request">
-    <md-card>Please serve this!</md-card>  
-  </md-tab>
-</md-tab-group>
-    <button md-fab class="style-mdfab">
+      <md-toolbar-row>
+        <div class="foolong-col-12">
+          <md-input-container class="foolong-col-12">
+            <md-placeholder>
+              <md-icon>search</md-icon>
+            </md-placeholder>
+            <input mdInput/>
+          </md-input-container>
+        </div>
+      </md-toolbar-row>
+    </md-toolbar>
+    <!-- END -->
+    <div>
+      <md-tab-group>
+        <md-tab label="Instant Order">
+          <app-food-item></app-food-item>
+        </md-tab>
+        <md-tab label="Pre Order">
+          <md-card>PreOrder Now!</md-card>
+        </md-tab>
+        <md-tab label="Make a request">
+          <md-card>Please serve this!</md-card>
+        </md-tab>
+      </md-tab-group>
+    </div>
+  </md-sidenav-container>
+</div>
+<div class="done">
+  <button md-fab>
       <md-icon>add</md-icon>
     </button>
-    <hr>
-  <footer style="position: fixed; bottom:0">
-    <p>Foolong</p>
-  </footer>
-  </md-sidenav-container>
-
-  
+</div>

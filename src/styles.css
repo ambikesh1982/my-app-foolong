@@ -7,19 +7,64 @@ body {
   font-family: Roboto, sans-serif;
 }
 
-md-card {
-  max-width: 80%;
-  margin: 2em auto;
-  text-align: center;
-}
-
-/*md-toolbar-row {
+md-toolbar-row {
   justify-content: space-between;
-}*/
+}
 
 .done {
   position: fixed;
   bottom: 20px;
   right: 20px;
   color: white;
+}
+
+* { box-sizing: border-box;}
+
+/* For mobile phones: */
+[class*="col-"] {
+    width: 100%;
+}
+
+@media only screen and (min-width: 480px) {
+    /* For tablets: */
+    .foolong-col-m-1 {width: 8.33%;}
+    .foolong-col-m-2 {width: 16.66%;}
+    .foolong-col-m-3 {width: 25%;}
+    .foolong-col-m-4 {width: 33.33%;}
+    .foolong-col-m-5 {width: 41.66%;}
+    .foolong-col-m-6 {width: 50%;}
+    .foolong-col-m-7 {width: 58.33%;}
+    .foolong-col-m-8 {width: 66.66%;}
+    .foolong-col-m-9 {width: 75%;}
+    .foolong-col-m-10 {width: 83.33%;}
+    .foolong-col-m-11 {width: 91.66%;}
+    .foolong-col-m-12 {width: 100%;}
+}
+
+@media only screen and (min-width: 769px) {
+    /*For Desktop*/
+    .foolong-col-1 {width: 8.33%;}
+    .foolong-col-2 {width: 16.66%;}
+    .foolong-col-3 {width: 25%;}
+    .foolong-col-4 {width: 33.33%;}
+    .foolong-col-5 {width: 41.66%;}
+    .foolong-col-6 {width: 50%;}
+    .foolong-col-7 {width: 58.33%;}
+    .foolong-col-8 {width: 66.66%;}
+    .foolong-col-9 {width: 75%;}
+    .foolong-col-10 {width: 83.33%;}
+    .foolong-col-11 {width: 91.66%;}
+    .foolong-col-12 {width: 100%;}
+}
+
+[class*="foolong-col-"] {
+    float: left;
+    padding: 5px;
+    border: 1px gray;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
 }

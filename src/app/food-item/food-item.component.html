@@ -1,27 +1,19 @@
-<!--md-grid-list cols="4" rowHeight="2:3" gutterSize="1px">
-  <md-grid-tile
-  *ngFor="let tile of tiles"
-  [colspan]="tile.cols"
-  [rowspan]="tile.rows"
-  [style.background]="tile.color">
-    <img [src]="tile.url" alt="foodItem" height="250px" width="250px">
-    <md-grid-tile-header>{{tile.text}}</md-grid-tile-header>
-    <md-grid-tile-footer>Tile Footer</md-grid-tile-footer>
-  </md-grid-tile>
-</md-grid-list-->
-<div style="display:flex; flex-direction:row; overflow-x:scroll">
-<md-card class="example-card" *ngFor="let tile of tiles">
-  <md-card-header>
-    <md-card-title>{{tile.text}}</md-card-title>
-    <md-card-subtitle>Subtitle</md-card-subtitle>
-  </md-card-header>
-  <img md-card-image [src]="tile.url">
-  <md-card-content>
-    <p>Food item description with key ingredients.</p>
-  </md-card-content>
-  <md-card-actions>
-      <button md-button>LIKE</button>
-      <button md-button>SHARE</button>
-  </md-card-actions>
-</md-card>
+<div class="row">
+  <div class="foolong-col-3 foolong-col-m-6" *ngFor="let card of cards;">
+    <!-- Component-2: MD Card: START-->
+    <md-card>
+      <md-card-header>
+        <md-card-title>{{card.text}}</md-card-title>
+        <md-card-subtitle>sub title</md-card-subtitle>
+      </md-card-header>
+      <img md-card-image [src]="card.url">
+      <md-card-content>Food item description with key ingredients.</md-card-content>
+      <md-card-actions>
+        <button md-button>LIKE</button>
+        <button md-button>SHARE</button>
+      </md-card-actions>
+      <!--<md-card-footer>card footer</md-card-footer>-->
+    </md-card>
+    <!-- END -->
+  </div>
 </div>
