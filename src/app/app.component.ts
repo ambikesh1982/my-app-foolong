@@ -9,5 +9,5 @@ import { FoodItemComponent } from './food-item/food-item.component';
 
 
 export class AppComponent {
-  title = 'Foolong';
+  title = 'Foodz9';
 }

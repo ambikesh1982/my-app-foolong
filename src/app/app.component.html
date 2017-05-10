@@ -1,7 +1,7 @@
 <div>
   <md-sidenav-container fullscreen>
     <!-- MD SIDENAV: START -->
-    <md-sidenav #start mode="over" style="width: 300px;" [opened]="false">
+    <md-sidenav #startLeftSideNav mode="over" style="width: 300px;" [opened]="false" align="left">
       <md-nav-list>
         <md-list-item>Home</md-list-item>
         <md-list-item>My Orders</md-list-item>
@@ -18,26 +18,32 @@
     <!-- Component-1: MD Toolbar: START -->
     <md-toolbar>
       <div>
-        <button md-icon-button (click)="start.toggle()">
-              <md-icon>menu</md-icon>
-          </button> Foolong
+        <button md-icon-button (click)="startLeftSideNav.toggle()">
+              <md-icon class="material-icons md-30">menu</md-icon>
+          </button>
+          <span>{{title}}</span>
       </div>
-      <button md-icon-button><md-icon>shopping_cart</md-icon></button>
+      <div>
+      <button md-icon-button mdTooltip="Search" mdTooltipShowDelay="1000"><md-icon class="material-icons md-30">search</md-icon></button>
+      <button md-icon-button mdTooltip="Cart" mdTooltipShowDelay="1000"><md-icon class="material-icons md-30">add_shopping_cart</md-icon></button>
+      <button md-icon-button mdTooltip="Account" mdTooltipShowDelay="1000"><md-icon class="material-icons md-30">account_circle</md-icon></button>
+      </div>
       <md-toolbar-row>
-        <div class="foolong-col-12">
-          <md-input-container class="foolong-col-12">
-            <md-placeholder>
-              <md-icon>search</md-icon>
-            </md-placeholder>
-            <input mdInput/>
-          </md-input-container>
+        <div class="foolong-col-12 material-icons md-30" mdTooltip="Distance Slider" mdTooltipShowDelay="1000">
+          <md-slider 
+            min="1" 
+            max="5" 
+            step="0.5" 
+            value="1.5"
+            style="width:100%"></md-slider>
         </div>
+         <md-icon class="material-icons md-30" mdTooltip="Filter" mdTooltipShowDelay="1000">tune</md-icon>
       </md-toolbar-row>
     </md-toolbar>
     <!-- END -->
     <div>
       <md-tab-group>
-        <md-tab label="Instant Order">
+        <md-tab label="Instant offers new you">
           <app-food-item></app-food-item>
         </md-tab>
         <md-tab label="Pre Order">
