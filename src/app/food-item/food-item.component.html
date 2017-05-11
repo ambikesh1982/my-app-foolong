@@ -4,10 +4,10 @@
     <md-card>
       <md-card-header>
         <md-card-title>{{card.text}}</md-card-title>
-        <md-card-subtitle>sub title</md-card-subtitle>
+       <!-- <md-card-subtitle>sub title</md-card-subtitle>-->
       </md-card-header>
       <img md-card-image [src]="card.url">
-      <md-card-content>Food item description with key ingredients.</md-card-content>
+      <md-card-content>{{card.desc}}</md-card-content>
       <md-card-actions>
         <button md-button>LIKE</button>
         <button md-button>SHARE</button>
