@@ -1,0 +1,15 @@
+img {
+    background-size: contain;
+}
+
+foolong-fix {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+.my-content {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}

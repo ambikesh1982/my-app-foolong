@@ -11,7 +11,9 @@ md-toolbar-row {
   justify-content: space-between;
 }
 
-.material-icons.md-30 { font-size: 30px; }
+.material-icons { 
+    font-size: x-large;
+    }
 
 .done {
   position: fixed;

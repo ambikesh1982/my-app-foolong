@@ -1,0 +1,70 @@
+<md-sidenav-container fullscreen>
+  <div class="foolong-fix">
+    <md-toolbar>
+      <div>
+        <button md-icon-button (click)="start.toggle()">
+              <md-icon class="material-icons md-30">menu</md-icon>
+          </button>
+        <span style="vertical-align:middle;">{{title}}</span>
+      </div>
+      <div>
+        <a md-icon-button routerLink="/search" routerLinkActive="active"
+          mdTooltip="Search" 
+          mdTooltipShowDelay="1000">
+          <md-icon>search</md-icon>
+        </a>
+        <a md-icon-button routerLink="/food-cart" routerLinkActive="active"
+          mdTooltip="Cart" 
+          mdTooltipShowDelay="1000">
+          <md-icon>add_shopping_cart</md-icon>
+        </a>
+        <a md-icon-button routerLink="/profile" routerLinkActive="active"
+          mdTooltip="Account" 
+          mdTooltipShowDelay="1000">
+          <md-icon>account_circle</md-icon>
+        </a>
+      </div>
+      <md-toolbar-row>
+        <div class="foolong-col-12 material-icons md-30" mdTooltip="Distance Slider" mdTooltipShowDelay="1000">
+          <md-slider min="1" max="5" step="0.5" value="1.5" style="width:100%"></md-slider>
+        </div>
+        <md-icon class="material-icons md-30" mdTooltip="Filter" mdTooltipShowDelay="1000">tune</md-icon>
+      </md-toolbar-row>
+    </md-toolbar>
+    <!-- END -->
+  </div>
+  <!-- MD SIDENAV: START -->
+  <md-sidenav #start mode="over" style="width: 300px;" [opened]="false">
+    <md-card>
+      <md-card-title>
+        <button md-icon-button (click)="start.toggle()"><md-icon>arrow_back</md-icon></button>
+          <span style="vertical-align:middle;">Foodz9</span>
+        </md-card-title>
+    </md-card>
+    <app-sidenav-list></app-sidenav-list>
+  </md-sidenav>
+  <!-- MD SIDENAV: END -->
+
+  <!--MD Toolbar: START -->
+  <div>
+    <md-tab-group>
+      <md-tab label="Instant offers new you">
+        <app-fooditem></app-fooditem>
+      </md-tab>
+      <md-tab label="Pre Order">
+        <app-fooditem></app-fooditem>
+      </md-tab>
+      <md-tab label="Make a request">
+        <md-card>Please serve this!</md-card>
+      </md-tab>
+    </md-tab-group>
+  </div>
+</md-sidenav-container>
+<div class="done">
+  <!--<button md-fab (click)="onFabClick()">
+    <md-icon>{{fabicon}}</md-icon>
+  </button>-->
+  <a md-fab routerLink="/add-fooditem" routerLinkActive="active">
+    <md-icon>add</md-icon>
+  </a>
+</div>
