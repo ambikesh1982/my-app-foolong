@@ -1,4 +1,22 @@
+<div class="foolong-col-4 material-icons md-30">
 <md-toolbar>
     <button md-icon-button routerLink="/" routerLinkActive="Active" [routerLinkActiveOptions]="{exact: true}"><md-icon style="font-size:2em;">arrow_back</md-icon></button>
-   <p>I don't like anonymous users :(</p>
+   <p *ngIf="!(user | async)">We missed you!</p>
+   <button *ngIf="(user | async)" md-button (click)="logout()">Logout</button>
 </md-toolbar>
+<md-card *ngIf="(user | async)">
+    <md-card-header>
+        <md-card-title>{{ (user | async)?.displayName }}</md-card-title>
+        <md-card-subtitle>{{ (user | async)?.email }}</md-card-subtitle>
+    </md-card-header>
+        <img md-card-image [src]="(user | async)?.photoURL">
+</md-card>
+
+<md-card *ngIf="!(user | async)">
+    <button  (click)="login()" md-button>Sign in with Google account.</button><br>
+    <button  (click)="login()" md-button disabled>Sign in with Facebook account.</button><br>
+    <button  (click)="login()" md-button disabled>Sign in with Email.</button>
+</md-card>
+</div>
+  
+
