@@ -3,11 +3,7 @@ import { Component } from '@angular/core';
 @Component({
     selector:'add-fooditem',
     templateUrl: './add-fooditem.component.html',
-    styles:[`
-        button{
-            font-size:large;          
-        }
-        `]
+    styles:[]
 })
 
 export class AddFoodItem{
