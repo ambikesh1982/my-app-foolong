@@ -18,6 +18,9 @@ import { PhotoUploadComponent } from './add-fooditem/photo-upload/photo-upload.c
 import { SearchComponent } from './search/search.component';
 import { FoodCartComponent } from './food-cart/food-cart.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { foodDataService } from './services/food-item-service';
+
 
 
 @NgModule({
@@ -30,7 +33,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     PhotoUploadComponent,
     SearchComponent,
     FoodCartComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule
   ],
-  providers: [],
+  providers: [foodDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

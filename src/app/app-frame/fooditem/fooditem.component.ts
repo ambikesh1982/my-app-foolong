@@ -1,10 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
+import {foodData} from './fooditem';
+
+//export const selectedFooditem: foodData[]=[];
 
 @Component({
   selector: 'app-fooditem',
   templateUrl: './fooditem.component.html',
   styleUrls: ['./fooditem.component.css']
 })
+
+
+
 export class FoodItemComponent implements OnInit {
     
    cards=[{text:'South Indian Meal',desc:'South Indian Thali is a great representation of the complex flavors and spices in Indian food',url:'../../assets/images/sounth.jpeg'},
@@ -22,9 +28,20 @@ export class FoodItemComponent implements OnInit {
           {text:'Egg Curry',desc:'Indian Egg Curry is an egg recipe made with boiled fried eggs and spices',url:'../../assets/images/egg-curry.jpg'}
      ];
 
+ //@Input()  selectedFooditem
+
+@Input()  selectedFooditem: foodData[]=[];
+  
   constructor() { }
 
+  onSelectFooditem(name,desc,url){
+    this.selectedFooditem.push(name,desc,url);
+    }
+    
   ngOnInit() {
   }
 
 }
+
+
+

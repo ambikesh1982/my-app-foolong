@@ -7,6 +7,7 @@ import { AddFoodItem } from './add-fooditem/add-fooditem.component';
 import { FoodCartComponent } from './food-cart/food-cart.component';
 import { SearchComponent } from './search/search.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: '/app-frame', pathMatch: 'full'},
@@ -15,6 +16,8 @@ const appRoutes: Routes = [
     { path: 'food-cart', component: FoodCartComponent },
     { path: 'search', component: SearchComponent },
     { path: 'profile', component: UserProfileComponent },
+     { path: 'checkout', component: CheckoutComponent }
+
 ];
 
 @NgModule({

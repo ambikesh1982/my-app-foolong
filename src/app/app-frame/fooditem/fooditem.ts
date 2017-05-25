@@ -12,3 +12,8 @@ export class FoodItem{
     isTakeAway: boolean;
     paymentMehotds: string;
 }
+export class foodData{
+    name: string;
+    desc:string;
+    url:string
+}
