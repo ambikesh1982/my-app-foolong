@@ -3,7 +3,13 @@ import { Component } from '@angular/core';
 @Component({
     selector:'add-fooditem',
     templateUrl: './add-fooditem.component.html',
-    styles:[]
+    styles:[`
+    #div1 {    
+    max-width: 100%;
+    max-height: auto;
+    padding: 10px;
+    border: 4px dashed #aaaaaa;
+}`]
 })
 
 export class AddFoodItem{
