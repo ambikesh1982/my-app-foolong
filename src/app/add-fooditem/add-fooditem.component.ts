@@ -3,41 +3,28 @@ import { Component } from '@angular/core';
 @Component({
     selector:'add-fooditem',
     templateUrl: './add-fooditem.component.html',
-    styles:[`
-    #div1 {    
-    max-width: 100%;
-    max-height: auto;
-    padding: 10px;
-    border: 4px dashed #aaaaaa;
-}`]
+    styles:[]
 })
 
 export class AddFoodItem{
     title='Post your food-item.';
-    toggleStatus = true;
-    progressweight=0;
-    foodCategory=[
-    {value: 'starter-0', viewValue: 'Starter'},
-    {value: 'main-course-1', viewValue: 'Main Course'},
-    {value: 'dessert-2', viewValue: 'Dessert'}
+    index:number=0;
+
+    addFoodItemSteps=[
+        { stepIndex:1, stepTitle:'Post your speciality', stepWeight:25},
+        { stepIndex:2, stepTitle:'Little description helps', stepWeight:50},
+        { stepIndex:3, stepTitle:'Price well and deliver', stepWeight:75},
+        { stepIndex:4, stepTitle:'Location is everyting', stepWeight:100},
+        { stepIndex:5, stepTitle:'Happy cooking!', stepWeight:100}
     ]
-    slideToggle='Vegitarian';
-    onSlide():void{
-        this.toggleStatus=!this.toggleStatus;
-        if(this.toggleStatus){
-            this.slideToggle='Vegetarian'
-        } else {this.slideToggle='Non-Vegetarian'}
-    }
-    addFoodItemStep=1;
-    onClickNext(){
-        this.addFoodItemStep=this.addFoodItemStep+1;
-        this.progressweight=this.progressweight+25;
-        console.log(this.addFoodItemStep);
+
+    hideatCompletion={
+        'display':'none'
     }
 
-    onClickBack(){
-        this.addFoodItemStep=this.addFoodItemStep-1;
-        this.progressweight=this.progressweight-25;
-        console.log(this.addFoodItemStep);
+    onClickNext(){ 
+        this.index=this.index+1; 
     }
+
+    onClickBack(){ this.index=this.index-1; }
 }
