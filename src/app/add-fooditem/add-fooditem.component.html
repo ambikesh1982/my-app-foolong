@@ -1,7 +1,91 @@
 <md-toolbar>
-    <button md-icon-button routerLink="/" routerLinkActive="Active" [routerLinkActiveOptions]="{exact: true}"><md-icon style="font-size:2em;">arrow_back</md-icon></button>
-    Post your speciality!
+    <button md-icon-button routerLink="/" routerLinkActive="Active" [routerLinkActiveOptions]="{exact: true}"><md-icon style="font-size:2em;">arrow_back</md-icon></button>    Post your speciality!
     <md-toolbar-row>
         <md-progress-bar color="accent" mode="determinate" value="{{progressweight}}"></md-progress-bar>
     </md-toolbar-row>
 </md-toolbar>
+
+<div [ngSwitch]="addFoodItemStep">
+    <ng-template [ngSwitchCase]="1">
+        <md-card>
+            <md-card-header></md-card-header>
+            <md-card-content>
+                <h3>
+                    <md-input-container color="accent" style="width:100%">
+                        <input mdInput required="true" placeholder="Enter Title" />
+                    </md-input-container>
+                </h3>
+            </md-card-content>
+        </md-card>
+
+        <md-card>
+            <md-card-actions style="display:flex; justify-content: space-between; border: 2px dashed #aaaaaa;">
+                <button md-button><md-icon>file_upload</md-icon>File upload</button>
+                <button md-button><md-icon>add_a_photo</md-icon> Use Camera</button>
+            </md-card-actions>
+            <md-card-content>
+                <md-grid-list cols="4" rowHeight="4:4">
+                    <md-grid-tile 
+                        style="display:flex; justify-content: space-between;border: 1px dashed #aaaaaa;" 
+                        *ngFor="let tile of [1,2,3,4]; let i of index">
+                        {{i}}
+                    </md-grid-tile>
+                </md-grid-list>
+            </md-card-content>
+            <md-card-footer> 
+                
+            </md-card-footer>
+        </md-card>
+    </ng-template>
+
+    <ng-template [ngSwitchCase]="2">
+        <md-card>
+            <md-card-content>
+                <h3>
+                    <md-input-container color="accent" style="width:100%">
+                        <input mdInput required="false" placeholder="Add short description..." />
+                    </md-input-container>
+                </h3>
+                <md-slide-toggle checked="true">
+                    Non-Vegetarian
+                </md-slide-toggle>
+                
+            </md-card-content>
+        </md-card>
+    </ng-template>
+
+    <ng-template [ngSwitchCase]="3">
+        <md-card>
+            3. Pricing and delivery options.
+        </md-card>
+    </ng-template>
+
+    <ng-template [ngSwitchCase]="4">
+        <md-card>
+            4. Location Details
+        </md-card>
+    </ng-template>
+
+    <ng-template ngSwitchDefault>
+        <md-card>
+            <md-icon>done_all</md-icon> Thanks for posting your speciality.
+            <md-card-actions>
+                <button md-raised-button color="accent">View your post!</button>
+            </md-card-actions>
+        </md-card>
+    </ng-template>
+</div>
+
+<div style="position:fixed; bottom:0px;width:100%">
+    <md-toolbar>
+        <button md-icon-button (click)="onClickBack()">
+
+    <md-icon style="font-size:3em;">keyboard_arrow_left</md-icon> 
+    <!--<span style="font-size:20px;">Back</span>-->
+  </button>
+        <button md-icon-button color="accent" (click)="onClickNext()">
+    <!--<span style="font-size:20px;">Next</span>-->
+    <md-icon style="font-size:3em;">keyboard_arrow_right</md-icon>
+  </button>
+    </md-toolbar>
+</div>
