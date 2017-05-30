@@ -25,17 +25,9 @@ export class FoodItemComponent implements OnInit {
         }
        
         onSelectFooditem(fooditemselected: FoodItem){
-          this.fooditemselected=fooditemselected;
-          console.log(this.fooditemselected.foodTitle);
-          console.log(this.fooditemselected.foodImagePath);
-          console.log(this.fooditemselected.foodDescription);
-          this.foodservice.onAddtoCheckout(this.fooditemselected);
-
-        }
-        itemToDispayCheckout(){
-            
-        }
-
+          this.foodservice.onAddtoCheckout(fooditemselected);
+       }
+      
 }
   
 
