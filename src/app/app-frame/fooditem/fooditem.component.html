@@ -7,10 +7,10 @@
         <md-card-title>Ambikesh</md-card-title>
         <md-card-subtitle>{{card.foodTitle}}</md-card-subtitle>
       </md-card-header>
-      <img style="height:240px;" routerLink="/checkout" md-card-image [src]="card.foodImagePath">
+      <img style="height:240px;" routerLink="/checkout" md-card-image [src]="card.foodImagePath" (click)="onSelectFooditem(card)">
       <md-card-content style="height:50px">{{card.foodDescription}}</md-card-content>
       <md-card-actions>
-        <button md-button routerLink="/checkout" (click)="onSelectFooditem('South','Test String','URL')">Order Now</button>
+        <button md-button  (click)="onSelectFooditem(card)" routerLink="/checkout">Order Now</button>
         <button md-button>Add to Cart</button>
       </md-card-actions>
       <!--<md-card-footer>price</md-card-footer>-->

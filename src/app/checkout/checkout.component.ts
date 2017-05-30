@@ -10,10 +10,15 @@ import {FoodItemComponent} from '../app-frame/fooditem/fooditem.component';
 })
 export class CheckoutComponent implements OnInit {
 
+  foodItemCheckout:FoodItem;
+
 constructor(private fooddataService: foodDataService) { }
+
+
   
   ngOnInit() {
-  
+  this.foodItemCheckout=this.fooddataService.getCheckoutItem();
+  console.log(this.foodItemCheckout);
   }
   
 

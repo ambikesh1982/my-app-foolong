@@ -6,6 +6,7 @@ import {FoodItem} from '../app-frame/fooditem/fooditem';
 export class foodDataService {
 
    @Output() fooditemSelected = new EventEmitter<FoodItem>();
+   checkoutItem: FoodItem;
 
      private foodItemcards: FoodItem[]=[
           new FoodItem('South Indian Meal','South Indian Thali is a great representation of the complex flavors and spices in Indian food','../../assets/images/sounth.jpeg'),
@@ -24,9 +25,16 @@ export class foodDataService {
      ];
    /* getFoodDetail(): Promise<foodData[]> {
         return Promise.resolve(FOOD_ARR);}*/
+
     
    getFoodDItem(){
         return this.foodItemcards.slice();
     }
-    
+
+    onAddtoCheckout(itemToDisplay: FoodItem){
+        this.checkoutItem=itemToDisplay;
+    }
+    getCheckoutItem(){
+      return this.checkoutItem;
+    }
 }

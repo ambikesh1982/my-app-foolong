@@ -1,25 +1,19 @@
+
 <md-toolbar>
     <button md-icon-button routerLink="/" routerLinkActive="Active" [routerLinkActiveOptions]="{exact: true}"><md-icon style="font-size:2em;">arrow_back</md-icon></button>
-    Checkout Please
+    Checkout Please 
 </md-toolbar>
-<!--<div class="row">
-  <div class="foolong-col-3 foolong-col-m-6" 
-       *ngFor="let card of fooditem;">
-    <md-card>
+<div class="row">
+  <div class="foolong-col-6 foolong-col-m-6">
+<md-card>
       <md-card-header>
         <div md-card-avatar style="background-image:url('../../assets/images/sounth.jpeg')"></div>
         <md-card-title>Ambikesh</md-card-title>
-        <md-card-subtitle>{{card.text}}</md-card-subtitle>
+        <md-card-subtitle>{{foodItemCheckout.foodTitle}}</md-card-subtitle>
       </md-card-header>
-      <img style="height:240px;" md-card-image [src]="card.url">
-      <md-card-content style="height:50px">{{card.desc}}</md-card-content>
-      <md-card-actions>
-        <button md-button >Order Now</button>
-        <button md-button>Add to Cart</button>
-      </md-card-actions>
-  
+      <img style="height:240px;" routerLink="/checkout" md-card-image [src]="foodItemCheckout.foodImagePath">
+      <md-card-content style="height:50px">{{foodItemCheckout.foodDescription}}</md-card-content>
+    
     </md-card>
-  
-  </div>
-</div>-->
-<p>
+</div>
+</div>

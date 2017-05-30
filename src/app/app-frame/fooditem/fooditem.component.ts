@@ -15,11 +15,25 @@ import {foodDataService} from '../../services/food-item-service';
 export class FoodItemComponent implements OnInit {
     
       foodItemcards: FoodItem[];
+      fooditemselected: FoodItem;
 
        constructor(private foodservice: foodDataService) { }
+       
      
        ngOnInit() {
          this.foodItemcards=this.foodservice.getFoodDItem();
+        }
+       
+        onSelectFooditem(fooditemselected: FoodItem){
+          this.fooditemselected=fooditemselected;
+          console.log(this.fooditemselected.foodTitle);
+          console.log(this.fooditemselected.foodImagePath);
+          console.log(this.fooditemselected.foodDescription);
+          this.foodservice.onAddtoCheckout(this.fooditemselected);
+
+        }
+        itemToDispayCheckout(){
+            
         }
 
 }
