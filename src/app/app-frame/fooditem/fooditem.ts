@@ -11,9 +11,11 @@ export class FoodItem{
     isHomeDelivery: boolean;
     isTakeAway: boolean;
     paymentMehotds: string;
-}
-export class foodData{
-    name: string;
-    desc:string;
-    url:string
+
+    constructor ( foodTitle: string,foodDescription: string,foodImagePath: string)
+    {
+        this.foodTitle=foodTitle;
+        this.foodDescription=foodDescription;
+        this.foodImagePath=foodImagePath;
+    }
 }
