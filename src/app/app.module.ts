@@ -20,6 +20,8 @@ import { FoodCartComponent } from './food-cart/food-cart.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { foodDataService } from './services/food-item-service';
+import { foodCartService } from './services/food-cart-service';
+
 
 
 
@@ -46,7 +48,9 @@ import { foodDataService } from './services/food-item-service';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule
   ],
-  providers: [foodDataService],
+  providers: [foodDataService,
+             foodCartService
+             ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

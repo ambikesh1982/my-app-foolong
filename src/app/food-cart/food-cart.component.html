@@ -1,4 +1,18 @@
 <md-toolbar>
     <button md-icon-button routerLink="/" routerLinkActive="Active" [routerLinkActiveOptions]="{exact: true}"><md-icon style="font-size:2em;">arrow_back</md-icon></button>
-    Your Cart is empty!
+    Your Cart has one item!
 </md-toolbar>
+<div class="row">
+  <div class="foolong-col-3 foolong-col-m-6">
+<md-card>
+      <md-card-header>
+        <div md-card-avatar style="background-image:url('../../assets/images/sounth.jpeg')"></div>
+        <md-card-title>Ambikesh</md-card-title>
+        <md-card-subtitle>{{ItemforCart.foodTitle}}</md-card-subtitle>
+      </md-card-header>
+      <img style="height:240px;"  md-card-image [src]="ItemforCart.foodImagePath">
+      <md-card-content style="height:50px">{{ItemforCart.foodDescription}}</md-card-content>
+    
+    </md-card>
+</div>
+</div>
