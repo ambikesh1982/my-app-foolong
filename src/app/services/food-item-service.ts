@@ -5,7 +5,7 @@ import {FoodItem} from '../app-frame/fooditem/fooditem';
 
 export class foodDataService {
 
-   @Output() fooditemSelected = new EventEmitter<FoodItem>();
+  // @Output() fooditemSelected = new EventEmitter<FoodItem>();
    checkoutItem: FoodItem;
 
      private foodItemcards: FoodItem[]=[
