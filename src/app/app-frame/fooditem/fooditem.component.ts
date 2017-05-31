@@ -1,8 +1,5 @@
-import { Component, OnInit,Input} from '@angular/core';
+import { Component, Input} from '@angular/core';
 import {FoodItem} from './fooditem';
-import {foodDataService} from '../../services/food-item-service';
-
-//export const selectedFooditem: foodData[]=[];
 
 @Component({
   selector: 'app-fooditem',
@@ -10,24 +7,12 @@ import {foodDataService} from '../../services/food-item-service';
   styleUrls: ['./fooditem.component.css']
 })
 
+export class FoodItemComponent{
+  @Input() fooditem:FoodItem;
 
-
-export class FoodItemComponent implements OnInit {
+ onSelectFooditem(selectedFoodItem: FoodItem){
     
-      foodItemcards: FoodItem[];
-      fooditemselected: FoodItem;
-
-       constructor(private foodservice: foodDataService) { }
-       
-     
-       ngOnInit() {
-         this.foodItemcards=this.foodservice.getFoodDItem();
-        }
-       
-        onSelectFooditem(fooditemselected: FoodItem){
-          this.foodservice.onAddtoCheckout(fooditemselected);
-       }
-      
+ }     
 }
   
 

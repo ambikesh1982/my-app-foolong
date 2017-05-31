@@ -1,20 +1,14 @@
-<div class="row">
-  <div class="foolong-col-3 foolong-col-m-6" 
-       *ngFor="let card of foodItemcards;">
-    <md-card>
-      <md-card-header>
-        <div md-card-avatar style="background-image:url('../../assets/images/sounth.jpeg')"></div>
-        <md-card-title>Ambikesh</md-card-title>
-        <md-card-subtitle>{{card.foodTitle}}</md-card-subtitle>
-      </md-card-header>
-      <img style="height:240px;" routerLink="/checkout" md-card-image [src]="card.foodImagePath" (click)="onSelectFooditem(card)">
-      <md-card-content style="height:50px">{{card.foodDescription}}</md-card-content>
-      <md-card-actions>
-        <button md-button  (click)="onSelectFooditem(card)" routerLink="/checkout">Order Now</button>
-        <button md-button>Add to Cart</button>
-      </md-card-actions>
-      <!--<md-card-footer>price</md-card-footer>-->
-    </md-card>
-    <!-- END -->
-  </div>
-</div>
+<md-card>
+  <md-card-header>
+    <div md-card-avatar style="background-image:url('../../assets/images/sounth.jpeg')"></div>
+    <md-card-title>Ambikesh</md-card-title>
+    <md-card-subtitle>{{fooditem.foodTitle}}</md-card-subtitle>
+  </md-card-header>
+  <img style="height:240px;" routerLink="/checkout" md-card-image [src]="fooditem.foodImagePath" (click)="onSelectFooditem(card)">
+  <md-card-content style="height:50px">{{fooditem.foodDescription}}</md-card-content>
+  <md-card-actions>
+    <button md-button (click)="onSelectFooditem(fooditem)" routerLink="/checkout">Order Now</button>
+    <button md-button>Add to Cart</button>
+  </md-card-actions>
+</md-card>
+
