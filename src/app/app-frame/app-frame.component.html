@@ -8,19 +8,13 @@
         <span style="vertical-align:middle;">{{title}}</span>
       </div>
       <div>
-        <a md-icon-button routerLink="/search" routerLinkActive="active"
-          mdTooltip="Search" 
-          mdTooltipShowDelay="1000">
+        <a md-icon-button routerLink="/search" routerLinkActive="active" mdTooltip="Search" mdTooltipShowDelay="1000">
           <md-icon>search</md-icon>
         </a>
-        <a md-icon-button routerLink="/food-cart" routerLinkActive="active"
-          mdTooltip="Cart" 
-          mdTooltipShowDelay="1000">
+        <a md-icon-button routerLink="/food-cart" routerLinkActive="active" mdTooltip="Cart" mdTooltipShowDelay="1000">
           <md-icon>add_shopping_cart</md-icon>
         </a>
-        <a md-icon-button routerLink="/profile" routerLinkActive="active"
-          mdTooltip="Account" 
-          mdTooltipShowDelay="1000">
+        <a md-icon-button routerLink="/profile" routerLinkActive="active" mdTooltip="Account" mdTooltipShowDelay="1000">
           <md-icon>account_circle</md-icon>
         </a>
       </div>
@@ -31,39 +25,47 @@
         <md-icon class="material-icons md-30" mdTooltip="Filter" mdTooltipShowDelay="1000">tune</md-icon>
       </md-toolbar-row>
     </md-toolbar>
-    <!-- END -->
   </div>
+
   <!-- MD SIDENAV: START -->
   <md-sidenav #start mode="over" style="width: 300px;" [opened]="false">
     <md-card>
       <md-card-title>
         <button md-icon-button (click)="start.toggle()"><md-icon>arrow_back</md-icon></button>
-          <span style="vertical-align:middle;">Foodz9</span>
-        </md-card-title>
+        <span style="vertical-align:middle;">Foodz9</span>
+      </md-card-title>
     </md-card>
     <app-sidenav-list></app-sidenav-list>
   </md-sidenav>
   <!-- MD SIDENAV: END -->
 
-  <!--MD Toolbar: START -->
   <div>
     <md-tab-group>
-      <md-tab label="Instant offers new you">
-        <app-fooditem></app-fooditem>
+      <md-tab label="Instant offers">
+        <div class="row">
+          <div class="foolong-col-3 foolong-col-m-6" *ngFor="let fooditem of foodItems;">
+            <app-fooditem [fooditem]="fooditem"></app-fooditem>
+          </div>
+        </div>
       </md-tab>
-      <md-tab label="Pre Order" >
-        
+
+      <md-tab label="Pre Order">
+        <div class="row">
+          <div class="foolong-col-3 foolong-col-m-6" *ngFor="let fooditem of foodItems;">
+            <app-fooditem [fooditem]="fooditem"></app-fooditem>
+          </div>
+        </div>
       </md-tab>
-      <md-tab label="Make a request">
+
+      <md-tab label="Wish List">
         <md-card>Please serve this!</md-card>
       </md-tab>
     </md-tab-group>
   </div>
+
 </md-sidenav-container>
+
 <div class="done">
-  <!--<button md-fab (click)="onFabClick()">
-    <md-icon>{{fabicon}}</md-icon>
-  </button>-->
   <a md-fab routerLink="/add-fooditem" routerLinkActive="active">
     <md-icon>add</md-icon>
   </a>
