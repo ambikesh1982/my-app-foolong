@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {foodDataService} from '../services/food-item-service';
 import {FoodItem} from '../app-frame/fooditem/fooditem';
 import {FoodItemComponent} from '../app-frame/fooditem/fooditem.component';
+import {foodCartService} from '../services/food-cart-service';
+
 
 @Component({
   selector: 'app-checkout',
@@ -12,7 +14,13 @@ export class CheckoutComponent implements OnInit {
 
   foodItemCheckout:FoodItem;
 
-constructor(private fooddataService: foodDataService) { }
+constructor(private fooddataService: foodDataService,
+            private cartservice: foodCartService) { }
+
+onAddtoCart(addItemToCart: FoodItem){
+          this.cartservice.onAddtoCart(addItemToCart);
+
+       }
   
   ngOnInit() {
   this.foodItemCheckout=this.fooddataService.getCheckoutItem();

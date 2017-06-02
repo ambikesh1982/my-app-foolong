@@ -2,6 +2,7 @@ import { Component, OnInit,Input} from '@angular/core';
 import {FoodItem} from './fooditem';
 import {foodDataService} from '../../services/food-item-service';
 import {foodCartService} from '../../services/food-cart-service';
+import * as firebase from 'firebase/app';
 
 //export const selectedFooditem: foodData[]=[];
 
@@ -36,7 +37,7 @@ export class FoodItemComponent implements OnInit {
        ngOnInit() {
          this.foodItemcards=this.foodservice.getFoodDItem();
         }
-       
+      
 }
   
 

@@ -15,4 +15,6 @@ export class AppComponent {
   onFabClick():void{
     this.fabicon='camera';
   }
+
+  
 }

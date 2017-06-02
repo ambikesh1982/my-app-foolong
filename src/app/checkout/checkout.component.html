@@ -13,7 +13,11 @@
       </md-card-header>
       <img style="height:240px;" md-card-image [src]="foodItemCheckout.foodImagePath">
       <md-card-content style="height:50px">{{foodItemCheckout.foodDescription}}</md-card-content>
-    
+      
+       <md-card-actions>
+      <button md-button (click)="onAddtoCart(card)">Add to Cart</button>
+       </md-card-actions>
+
     </md-card>
 </div>
 </div>
