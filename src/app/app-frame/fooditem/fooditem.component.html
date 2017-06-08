@@ -4,10 +4,10 @@
     <md-card-title>Ambikesh</md-card-title>
     <md-card-subtitle>{{fooditem.foodTitle}}</md-card-subtitle>
   </md-card-header>
-  <img style="height:240px;" routerLink="/checkout" md-card-image [src]="fooditem.foodImagePath" (click)="onSelectFooditem(card)">
+  <img style="height:240px;" md-card-image [src]="fooditem.foodImagePath">
   <md-card-content style="height:50px">{{fooditem.foodDescription}}</md-card-content>
   <md-card-actions>
-    <button md-button (click)="onSelectFooditem(fooditem)" routerLink="/checkout">Order Now</button>
+    <button md-button>Order Now</button>
     <button md-button>Add to Cart</button>
   </md-card-actions>
 </md-card>

@@ -43,18 +43,17 @@
     <md-tab-group>
       <md-tab label="Instant offers">
         <div class="row">
-          <div class="foolong-col-3 foolong-col-m-6" *ngFor="let fooditem of foodItems;">
+          <div 
+            class="foolong-col-3 foolong-col-m-6" 
+            *ngFor="let fooditem of foodItems;"
+            [routerLink]="['/detail', fooditem.foodId]">
             <app-fooditem [fooditem]="fooditem"></app-fooditem>
           </div>
         </div>
       </md-tab>
 
       <md-tab label="Pre Order">
-        <div class="row">
-          <div class="foolong-col-3 foolong-col-m-6" *ngFor="let fooditem of foodItems;">
-            <app-fooditem [fooditem]="fooditem"></app-fooditem>
-          </div>
-        </div>
+        <md-card>Item for pre-order!</md-card>
       </md-tab>
 
       <md-tab label="Wish List">

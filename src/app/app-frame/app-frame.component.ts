@@ -14,8 +14,7 @@ export class AppFrameComponent {
   foodItems: FoodItem[];
   constructor(private foodservice: foodDataService) { }
 
-  ngOnInit() {
-    this.foodItems=this.foodservice.getFoodDItem();
-        }
-
+ ngOnInit():void{
+        this.foodservice.getFoodDItems().then(foodItems => this.foodItems=foodItems);
+    };
 }

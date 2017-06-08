@@ -3,17 +3,16 @@ import { ActivatedRoute, Params }   from '@angular/router';
 import { Location }                 from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 
-import {foodDataService} from '../services/food-item-service';
-import {FoodItem} from '../app-frame/fooditem/fooditem';
-import {FoodItemComponent} from '../app-frame/fooditem/fooditem.component';
+import { foodDataService } from "app/services/food-item-service";
+import { FoodItem } from "app/app-frame/fooditem/fooditem";
 
 @Component({
-  selector: 'app-checkout',
-  templateUrl: './checkout.component.html',
-  styleUrls: ['./checkout.component.css']
+  selector: 'app-detail',
+  templateUrl: './fooditem-detail.component.html',
+  styleUrls: ['./fooditem-detail.component.css']
 })
 
-export class CheckoutComponent implements OnInit {
+export class FoodDetailComponent implements OnInit {
   constructor(private foodService: foodDataService,
               private route: ActivatedRoute,
               private location: Location) { }

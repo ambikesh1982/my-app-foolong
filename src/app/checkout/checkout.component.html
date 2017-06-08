@@ -1,23 +1,6 @@
 
 <md-toolbar>
-    <button md-icon-button routerLink="/" routerLinkActive="Active" [routerLinkActiveOptions]="{exact: true}"><md-icon style="font-size:2em;">arrow_back</md-icon></button>
+    <button md-icon-button (click)="goBack()"><md-icon style="font-size:2em;">arrow_back</md-icon></button>
     Checkout Please 
 </md-toolbar>
-<div class="row">
-  <div class="foolong-col-3 foolong-col-m-6">
-<md-card>
-      <md-card-header>
-        <div md-card-avatar style="background-image:url('../../assets/images/sounth.jpeg')"></div>
-        <md-card-title>Ambikesh</md-card-title>
-        <md-card-subtitle>{{foodItemCheckout.foodTitle}}</md-card-subtitle>
-      </md-card-header>
-      <img style="height:240px;" md-card-image [src]="foodItemCheckout.foodImagePath">
-      <md-card-content style="height:50px">{{foodItemCheckout.foodDescription}}</md-card-content>
-      
-       <md-card-actions>
-      <button md-button (click)="onAddtoCart(card)">Add to Cart</button>
-       </md-card-actions>
 
-    </md-card>
-</div>
-</div>

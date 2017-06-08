@@ -18,6 +18,7 @@ import { AppComponent } from './app.component';
 import { AppFrameComponent } from './app-frame/app-frame.component';
 import { AppSidenavComponent } from './app-frame/app-sidenav.component';
 import { FoodItemComponent } from './app-frame/fooditem/fooditem.component';
+import { FoodDetailComponent } from "./app-frame/fooditem/fooditem-detail/fooditem-detail.component";
 import { AddFoodItem } from './add-fooditem/add-fooditem.component'
 import { PhotoUploadComponent } from './add-fooditem/photo-upload/photo-upload.component';
 import { SearchComponent } from './search/search.component';
@@ -27,15 +28,13 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { foodDataService } from './services/food-item-service';
 import { foodCartService } from './services/food-cart-service';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
     AppFrameComponent,
     AppSidenavComponent,
     FoodItemComponent,
+    FoodDetailComponent,
     AddFoodItem,
     PhotoUploadComponent,
     SearchComponent,
