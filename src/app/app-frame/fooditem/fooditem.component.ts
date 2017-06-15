@@ -8,6 +8,6 @@ import {FoodItem} from './fooditem';
 })
 
 export class FoodItemComponent{
-  @Input() fooditem:FoodItem;
+  @Input() appfooditem:FoodItem;
 
 }

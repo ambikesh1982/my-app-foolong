@@ -47,7 +47,7 @@
             class="foolong-col-3 foolong-col-m-6" 
             *ngFor="let fooditem of foodItems;"
             [routerLink]="['/detail', fooditem.foodId]">
-            <app-fooditem [fooditem]="fooditem"></app-fooditem>
+            <app-fooditem [appfooditem]="fooditem"></app-fooditem>
           </div>
         </div>
       </md-tab>
