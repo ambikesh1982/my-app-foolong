@@ -1,10 +1,37 @@
+    <div style="margin-bottom:40px">
+        <md-toolbar>
+        <div>
+            <button md-icon-button (click)="goBack()"><md-icon style="font-size:2em;">arrow_back</md-icon></button>
+        </div>
+        <div>
+            <a md-icon-button routerLink="/search" routerLinkActive="active" mdTooltip="Search" mdTooltipShowDelay="1000">
+                <md-icon>search</md-icon>
+            </a>
+            <a md-icon-button routerLink="/food-cart" routerLinkActive="active" mdTooltip="Cart" mdTooltipShowDelay="1000">
+                <md-icon>add_shopping_cart</md-icon>
+            </a>
+            <a md-icon-button routerLink="/profile" routerLinkActive="active" mdTooltip="Account" mdTooltipShowDelay="1000">
+                <md-icon>account_circle</md-icon>
+            </a>
+        </div>
+    </md-toolbar>
 
-<md-toolbar>
-    <button md-icon-button (click)="goBack()"><md-icon style="font-size:2em;">arrow_back</md-icon></button>
-    FoodItem Details 
-</md-toolbar>
-<div class="row">
-  <div *ngIf="foodItem" class="foolong-col-3 foolong-col-m-6">
-    <app-fooditem [fooditem]="foodItem"></app-fooditem>
-</div>
-</div>
+    <div *ngIf="foodItem">
+        <img [src]="foodItem.foodImagePath" alt="{{foodItem.foodTitle}}">
+        <h3>{{foodItem.foodTitle}}: 200</h3>
+        {{foodItem.foodDescription}}
+    </div>
+    </div>
+    
+    <table style=" height: 40px; 
+    position: fixed; 
+    bottom:0%;
+    width:100%; 
+    background-color: white; 
+    opacity: 100;">
+        <tr>
+            <button md-button style="width:50%; color: aqua" (click)="onAddToCart()">ADD TO CART</button>
+            <button md-button color="accent" style="width:50%">BUY NOW</button>
+        </tr>
+    </table>
+

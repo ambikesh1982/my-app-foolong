@@ -12,7 +12,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: '/app-frame', pathMatch: 'full'},
-    { path: 'app-frame', component: AppFrameComponent },
+    { path: 'app-frame', component: AppFrameComponent},
     { path: 'detail/:id', component: FoodDetailComponent },
     { path: 'add-fooditem', component: AddFoodItem },
     { path: 'food-cart', component: FoodCartComponent },

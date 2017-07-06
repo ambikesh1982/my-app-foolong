@@ -3,8 +3,9 @@ import { ActivatedRoute, Params }   from '@angular/router';
 import { Location }                 from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 
-import { foodDataService } from "app/services/food-item-service";
-import { FoodItem } from "app/app-frame/fooditem/fooditem";
+import { FoodItem } from "app/app-frame/fooditem/fooditem.model";
+import { FoodDataService } from "app/app-frame/fooditem/fooditem.service";
+
 
 @Component({
   selector: 'app-detail',
@@ -13,19 +14,21 @@ import { FoodItem } from "app/app-frame/fooditem/fooditem";
 })
 
 export class FoodDetailComponent implements OnInit {
-  constructor(private foodService: foodDataService,
-              private route: ActivatedRoute,
-              private location: Location) { }
-
-  @Input() foodItem:FoodItem;
+  foodItem:FoodItem;
+  constructor(
+    private fs: FoodDataService,
+    private ar: ActivatedRoute,
+    private location: Location) {}
   
   ngOnInit() {
-  this.route.params
-        .switchMap((params: Params) => this.foodService.getFoodDItem(+params['id']))
-        .subscribe(foodItem => this.foodItem = foodItem);
-}
-
-  goBack(): void { this.location.back()}
+  this.ar.params
+        .switchMap((params: Params) => this.fs.getFoodDItem(+params['id']))
+        .subscribe(foodItem => this.foodItem = foodItem); 
+  }
   
+  onAddToCart(){
+    this.fs.addFoodCartItems(this.foodItem);
+    }
 
+  goBack(): void {this.location.back()}
 }

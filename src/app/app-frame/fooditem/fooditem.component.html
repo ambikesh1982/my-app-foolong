@@ -1,4 +1,4 @@
-<md-card>
+<!--<md-card>
   <md-card-header>
     <div md-card-avatar style="background-image:url('../../assets/images/sounth.jpeg')"></div>
     <md-card-title>Ambikesh</md-card-title>
@@ -10,4 +10,20 @@
     <button md-button>Order Now</button>
     <button md-button>Add to Cart</button>
   </md-card-actions>
+</md-card>-->
+
+<md-card>
+  <md-card-title>{{fooditem.foodTitle}}</md-card-title>
+  <img md-card-image [src]="fooditem.foodImagePath" alt="xyz">
+  <md-card-content >
+    <md-card-subtitle style="color:#F4511E">
+      INR 200
+      <md-icon></md-icon>
+    </md-card-subtitle> 
+    {{fooditem.foodDescription}}
+  </md-card-content>
+  <!--<md-card-actions style="display:block; justify-content: space-between;">
+    <button md-button>Add to Cart</button>
+    <button md-button>Order Now</button>
+  </md-card-actions>-->
 </md-card>

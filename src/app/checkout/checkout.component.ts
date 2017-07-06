@@ -3,9 +3,9 @@ import { ActivatedRoute, Params }   from '@angular/router';
 import { Location }                 from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 
-import {foodDataService} from '../services/food-item-service';
-import {FoodItem} from '../app-frame/fooditem/fooditem';
+import {FoodItem} from '../app-frame/fooditem/fooditem.model';
 import {FoodItemComponent} from '../app-frame/fooditem/fooditem.component';
+import { FoodDataService } from "app/app-frame/fooditem/fooditem.service";
 
 @Component({
   selector: 'app-checkout',
@@ -14,7 +14,7 @@ import {FoodItemComponent} from '../app-frame/fooditem/fooditem.component';
 })
 
 export class CheckoutComponent implements OnInit {
-  constructor(private foodService: foodDataService,
+  constructor(private foodService: FoodDataService,
               private route: ActivatedRoute,
               private location: Location) { }
 

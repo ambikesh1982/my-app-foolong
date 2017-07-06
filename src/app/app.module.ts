@@ -25,8 +25,7 @@ import { SearchComponent } from './search/search.component';
 import { FoodCartComponent } from './food-cart/food-cart.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { CheckoutComponent } from './checkout/checkout.component';
-import { foodDataService } from './services/food-item-service';
-import { foodCartService } from './services/food-cart-service';
+import { FoodDataService } from 'app/app-frame/fooditem/fooditem.service';
 
 @NgModule({
   declarations: [
@@ -53,9 +52,9 @@ import { foodCartService } from './services/food-cart-service';
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [foodDataService,
-             foodCartService
-             ],
+  providers: [
+    FoodDataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

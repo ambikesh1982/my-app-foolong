@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FoodItem} from '../app-frame/fooditem/fooditem';
-import {foodCartService} from '../services/food-cart-service';
 
-
+import {FoodItem} from '../app-frame/fooditem/fooditem.model';
+import { FoodDataService } from "app/app-frame/fooditem/fooditem.service";
 
 @Component({
   selector: 'app-food-cart',
@@ -11,12 +10,12 @@ import {foodCartService} from '../services/food-cart-service';
 })
 export class FoodCartComponent implements OnInit {
 
- ItemforCart:FoodItem;
+ foodCartItems:FoodItem[]=[];
 
-constructor(private cartService: foodCartService) { }
+constructor(private fs: FoodDataService) { }
   
   ngOnInit() {
-  this.ItemforCart=this.cartService.getCartItem();
+    this.foodCartItems=this.fs.getFoodCartItems();
   }
 
 }

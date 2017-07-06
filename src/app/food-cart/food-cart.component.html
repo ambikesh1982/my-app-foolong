@@ -1,17 +1,11 @@
 <md-toolbar>
     <button md-icon-button routerLink="/" routerLinkActive="Active" [routerLinkActiveOptions]="{exact: true}"><md-icon style="font-size:2em;">arrow_back</md-icon></button>
-    Your Cart has one item!
+    My Cart(3)
 </md-toolbar>
 <div class="row">
   <div class="foolong-col-3 foolong-col-m-6">
-<md-card>
-      <md-card-header>
-        <div md-card-avatar style="background-image:url('../../assets/images/sounth.jpeg')"></div>
-        <md-card-title>Ambikesh</md-card-title>
-        <md-card-subtitle>{{ItemforCart.foodTitle}}</md-card-subtitle>
-      </md-card-header>
-      <img style="height:240px;"  md-card-image [src]="ItemforCart.foodImagePath">
-      <md-card-content style="height:50px">{{ItemforCart.foodDescription}}</md-card-content> 
-    </md-card>
+<md-card *ngFor="let fcitems of foodCartItems">
+  {{fcitems.foodId}}: {{fcitems.foodTitle}}
+</md-card>
 </div>
 </div>
