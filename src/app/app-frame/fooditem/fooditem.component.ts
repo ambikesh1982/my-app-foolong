@@ -9,10 +9,5 @@ import { FoodItem } from 'app/app-frame/fooditem/fooditem.model';
 })
 
 export class FoodItemComponent{
-<<<<<<< HEAD
   @Input() fooditem:FoodItem;
-=======
-  @Input() appfooditem:FoodItem;
-
->>>>>>> 7cba42a44af14bfa51069cb51d238901f86a3e3b
 }
