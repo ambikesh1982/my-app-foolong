@@ -1,23 +1,27 @@
-<div>
+<div style="margin-bottom:40px">
   <md-toolbar>
     <button md-icon-button routerLink="/" routerLinkActive="Active" [routerLinkActiveOptions]="{exact: true}"><md-icon style="font-size:2em;">arrow_back</md-icon></button>    My Cart({{itemsInCart}})
   </md-toolbar>
   <div class="row">
     <div class="foolong-col-3 foolong-col-m-6">
       <md-card *ngFor="let fcitems of foodCartItems; let i = index">
+          <h4>{{i+1}}. {{fcitems.foodTitle}}</h4>
+          <!--<md-card-subtitle>One portion serves two people</md-card-subtitle>-->
         <md-card-title-group>
           <img md-card-sm-image [src]="fcitems.foodImagePath" alt="fcitems.foodTitle">
-          <md-card-subtitle>
-            <span>{{i+1}}: {{fcitems.foodTitle}}</span><br/>
-            <span>Serving 2 People: 1</span><br/>
-            <span>Quantity: 1</span><br/>
-            <span>Price: INR 200</span>
-          </md-card-subtitle>
+          <md-card-subtitle>Seller: Ambikesh</md-card-subtitle>
+          <md-card-subtitle>Serves 2 per portion.</md-card-subtitle>
+          <md-card-subtitle>INR 200 per portion.</md-card-subtitle>
         </md-card-title-group>
-        <md-card-actions style="text-align:right">
-          <button md-icon-button>
+        <md-card-actions style="display:flex;justify-content: space-between;">
+          <md-select color="accent" placeholder="Quantity">
+            <md-option value="One">1</md-option>
+            <md-option value="Two">2</md-option>
+          </md-select>
+          <span style="margin-top:.8em">Price: INR 200</span>
+          <!--<button md-icon-button>
             <md-icon>edit</md-icon>
-          </button>
+          </button>-->
           <button md-icon-button>
             <md-icon>delete_sweep</md-icon>
           </button>
@@ -30,8 +34,9 @@
     </div>
   </div>
   <div style=" 
+    height: 40px;
     position: fixed; 
-    bottom:0%;
+    bottom:1%;
     width:100%; 
     opacity: 100;">
     <table style="width:100%;">
