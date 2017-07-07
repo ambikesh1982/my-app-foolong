@@ -11,11 +11,13 @@ import { FoodDataService } from "app/app-frame/fooditem/fooditem.service";
 export class FoodCartComponent implements OnInit {
 
  foodCartItems:FoodItem[]=[];
+ itemsInCart: number;
 
 constructor(private fs: FoodDataService) { }
   
   ngOnInit() {
     this.foodCartItems=this.fs.getFoodCartItems();
+    this.itemsInCart=this.foodCartItems.length;
   }
 
 }

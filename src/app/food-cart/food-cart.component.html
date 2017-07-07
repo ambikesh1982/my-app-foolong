@@ -1,11 +1,44 @@
-<md-toolbar>
-    <button md-icon-button routerLink="/" routerLinkActive="Active" [routerLinkActiveOptions]="{exact: true}"><md-icon style="font-size:2em;">arrow_back</md-icon></button>
-    My Cart(3)
-</md-toolbar>
-<div class="row">
-  <div class="foolong-col-3 foolong-col-m-6">
-<md-card *ngFor="let fcitems of foodCartItems">
-  {{fcitems.foodId}}: {{fcitems.foodTitle}}
-</md-card>
-</div>
+<div>
+  <md-toolbar>
+    <button md-icon-button routerLink="/" routerLinkActive="Active" [routerLinkActiveOptions]="{exact: true}"><md-icon style="font-size:2em;">arrow_back</md-icon></button>    My Cart({{itemsInCart}})
+  </md-toolbar>
+  <div class="row">
+    <div class="foolong-col-3 foolong-col-m-6">
+      <md-card *ngFor="let fcitems of foodCartItems; let i = index">
+        <md-card-title-group>
+          <img md-card-sm-image [src]="fcitems.foodImagePath" alt="fcitems.foodTitle">
+          <md-card-subtitle>
+            <span>{{i+1}}: {{fcitems.foodTitle}}</span><br/>
+            <span>Serving 2 People: 1</span><br/>
+            <span>Quantity: 1</span><br/>
+            <span>Price: INR 200</span>
+          </md-card-subtitle>
+        </md-card-title-group>
+        <md-card-actions style="text-align:right">
+          <button md-icon-button>
+            <md-icon>edit</md-icon>
+          </button>
+          <button md-icon-button>
+            <md-icon>delete_sweep</md-icon>
+          </button>
+        </md-card-actions>
+        <!--<md-card-header>
+          <img md-card-avatar [src]="fcitems.foodImagePath" alt="fcitems.foodTitle" style="background-size: cover;">
+          <md-card-subtitle>{{i+1}}: {{fcitems.foodTitle}}</md-card-subtitle>
+        </md-card-header>-->
+      </md-card>
+    </div>
+  </div>
+  <div style=" 
+    position: fixed; 
+    bottom:0%;
+    width:100%; 
+    opacity: 100;">
+    <table style="width:100%;">
+      <tr>
+        <button md-raised-button style="height:50px;width:50%; color:white;background-color: #795548">SHOP MORE</button>
+        <button md-raised-button color="accent" style="height:50px;width:50%">CHECKOUT</button>
+      </tr>
+    </table>
+  </div>
 </div>
