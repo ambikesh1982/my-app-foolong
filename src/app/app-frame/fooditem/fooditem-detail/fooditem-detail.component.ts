@@ -15,6 +15,7 @@ import { FoodDataService } from "app/app-frame/fooditem/fooditem.service";
 
 export class FoodDetailComponent implements OnInit {
   foodItem:FoodItem;
+  itemsInTheCart:number = 0;
   constructor(
     private fs: FoodDataService,
     private ar: ActivatedRoute,
@@ -28,6 +29,7 @@ export class FoodDetailComponent implements OnInit {
   
   onAddToCart(){
     this.fs.addFoodCartItems(this.foodItem);
+    this.itemsInTheCart=this.itemsInTheCart+1;
     }
 
   goBack(): void {this.location.back()}

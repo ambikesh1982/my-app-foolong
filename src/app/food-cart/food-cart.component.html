@@ -1,49 +1,37 @@
-<div style="margin-bottom:40px">
+<div>
   <md-toolbar>
     <button md-icon-button routerLink="/" routerLinkActive="Active" [routerLinkActiveOptions]="{exact: true}"><md-icon style="font-size:2em;">arrow_back</md-icon></button>    My Cart({{itemsInCart}})
   </md-toolbar>
   <div class="row">
     <div class="foolong-col-3 foolong-col-m-6">
       <md-card *ngFor="let fcitems of foodCartItems; let i = index">
-          <h4>{{i+1}}. {{fcitems.foodTitle}}</h4>
-          <!--<md-card-subtitle>One portion serves two people</md-card-subtitle>-->
+        <h4>{{i+1}}. {{fcitems.foodTitle}}</h4>
+        <!--<md-card-subtitle>One portion serves two people</md-card-subtitle>-->
         <md-card-title-group>
           <img md-card-sm-image [src]="fcitems.foodImagePath" alt="fcitems.foodTitle">
           <md-card-subtitle>Seller: Ambikesh</md-card-subtitle>
           <md-card-subtitle>Serves 2 per portion.</md-card-subtitle>
           <md-card-subtitle>INR 200 per portion.</md-card-subtitle>
         </md-card-title-group>
-        <md-card-actions style="display:flex;justify-content: space-between;">
-          <md-select color="accent" placeholder="Quantity">
-            <md-option value="One">1</md-option>
-            <md-option value="Two">2</md-option>
-          </md-select>
-          <span style="margin-top:.8em">Price: INR 200</span>
-          <!--<button md-icon-button>
-            <md-icon>edit</md-icon>
-          </button>-->
-          <button md-icon-button>
-            <md-icon>delete_sweep</md-icon>
-          </button>
+        <md-card-actions>
+          <button md-icon-button><md-icon>remove</md-icon></button>
+          <span>1</span>
+          <button md-icon-button><md-icon>add</md-icon></button>
+          <span style="font-weight:bold">INR 200</span>
+          <button md-icon-button><md-icon style="color: red">delete_sweep</md-icon></button>
         </md-card-actions>
-        <!--<md-card-header>
-          <img md-card-avatar [src]="fcitems.foodImagePath" alt="fcitems.foodTitle" style="background-size: cover;">
-          <md-card-subtitle>{{i+1}}: {{fcitems.foodTitle}}</md-card-subtitle>
-        </md-card-header>-->
       </md-card>
+      <div style="position:fixed; bottom:0px;left:0%;width:100%; margin-right:10px; background-color:#F5F5F5">
+      <md-list>
+        <md-list-item md-header>Cart Summary:  ({{itemsInCart}}) Items</md-list-item>
+        <md-list-item>Amount Payable: *INR 200</md-list-item>
+      </md-list>
+      </div>
     </div>
   </div>
-  <div style=" 
-    height: 40px;
-    position: fixed; 
-    bottom:1%;
-    width:100%; 
-    opacity: 100;">
-    <table style="width:100%;">
-      <tr>
-        <button md-raised-button style="height:50px;width:50%; color:white;background-color: #795548">SHOP MORE</button>
-        <button md-raised-button color="accent" style="height:50px;width:50%">CHECKOUT</button>
-      </tr>
-    </table>
-  </div>
+</div>
+<div class="done">
+  <a md-fab>
+    <md-icon>check</md-icon>
+  </a>
 </div>

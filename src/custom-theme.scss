@@ -9,7 +9,8 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue.
-$foolong-app-primary: mat-palette($mat-grey,50);
+// $foolong-app-primary: mat-palette($mat-grey,50);
+$foolong-app-primary: mat-palette($mat-teal,500);
 $foolong-app-accent:  mat-palette($mat-deep-orange, 600);
 
 // The warn palette is optional (defaults to red).
