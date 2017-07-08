@@ -18,6 +18,7 @@ export class FoodDataService {
           ];
   
   private foodCartItems: FoodItem[]=[];
+  itemsInTheCart:number=0;
 
   addFoodCartItems(cartitem: FoodItem){
     this.foodCartItems.push(cartitem);

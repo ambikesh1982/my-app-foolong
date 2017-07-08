@@ -12,9 +12,9 @@ import { FoodDataService } from './fooditem/fooditem.service';
 export class AppFrameComponent {
   title = 'Foodz9';
   foodItems: FoodItem[];
-  constructor(private foodservice: FoodDataService) { }
+  constructor(private fs: FoodDataService) { }
 
  ngOnInit():void{
-        this.foodservice.getFoodDItems().then(foodItems => this.foodItems=foodItems);
+        this.fs.getFoodDItems().then(foodItems => this.foodItems=foodItems);
     };
 }
