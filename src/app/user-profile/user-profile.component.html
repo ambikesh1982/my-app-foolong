@@ -1,6 +1,6 @@
 
 <md-toolbar>
-    <button md-icon-button routerLink="/" routerLinkActive="Active" [routerLinkActiveOptions]="{exact: true}"><md-icon style="font-size:2em;">arrow_back</md-icon></button>
+    <app-nav-back [location]="this.location"></app-nav-back>
    <p *ngIf="!(user | async)">We missed you!</p>
    <button *ngIf="(user | async)" md-button (click)="logout()">Logout</button>
 </md-toolbar>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 import {FoodItem} from '../app-frame/fooditem/fooditem.model';
 import { FoodDataService } from "app/app-frame/fooditem/fooditem.service";
@@ -13,7 +14,10 @@ export class FoodCartComponent implements OnInit {
  foodCartItems:FoodItem[]=[];
  itemsInCart: number;
 
-constructor(private fs: FoodDataService) { }
+constructor(
+  private fs: FoodDataService,
+  private location: Location
+) { }
   
   ngOnInit() {
     this.foodCartItems=this.fs.getFoodCartItems();

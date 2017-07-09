@@ -1,8 +1,6 @@
     <div style="margin-bottom:40px">
         <md-toolbar>
-        <div>
-            <button md-icon-button (click)="goBack()"><md-icon style="font-size:2em;">arrow_back</md-icon></button>
-        </div>
+        <app-nav-back [location]="this.location"></app-nav-back>
         <div>
             <a md-icon-button routerLink="/search" routerLinkActive="active" mdTooltip="Search" mdTooltipShowDelay="1000">
                 <md-icon>search</md-icon>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Location } from '@angular/common'
 
 @Component({
     selector:'add-fooditem',
@@ -9,6 +10,7 @@ import { Component } from '@angular/core';
 export class AddFoodItem{
     title='Post your food-item.';
     index:number=0;
+    constructor(private location: Location){}
 
     addFoodItemSteps=[
         { stepIndex:1, stepTitle:'Post your speciality', stepWeight:25},
@@ -18,13 +20,9 @@ export class AddFoodItem{
         { stepIndex:5, stepTitle:'Happy cooking!', stepWeight:100}
     ]
 
-    hideatCompletion={
-        'display':'none'
-    }
+    hideatCompletion={ 'display':'none' }
 
-    onClickNext(){ 
-        this.index=this.index+1; 
-    }
-
+    onClickNext(){ this.index=this.index+1; }
+    
     onClickBack(){ this.index=this.index-1; }
 }

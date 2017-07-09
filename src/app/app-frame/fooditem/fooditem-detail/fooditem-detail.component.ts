@@ -31,6 +31,4 @@ export class FoodDetailComponent implements OnInit {
     this.fs.addFoodCartItems(this.foodItem);
     this.fs.itemsInTheCart=this.fs.itemsInTheCart+1;
     }
-
-  goBack(): void {this.location.back()}
 }

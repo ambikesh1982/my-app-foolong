@@ -1,9 +1,10 @@
 <div>
   <md-toolbar>
-    <button md-icon-button routerLink="/" routerLinkActive="Active" [routerLinkActiveOptions]="{exact: true}"><md-icon style="font-size:2em;">arrow_back</md-icon></button>    My Cart({{itemsInCart}})
+    <app-nav-back [location]="this.location"></app-nav-back>
+     <span>My Cart({{itemsInCart}})</span>
   </md-toolbar>
   <div class="row">
-    <div class="foolong-col-3 foolong-col-m-6">
+    <div class="foolong-col-4 foolong-col-m-6">
       <md-card *ngFor="let fcitems of foodCartItems; let i = index">
         <h4>{{i+1}}. {{fcitems.foodTitle}}</h4>
         <!--<md-card-subtitle>One portion serves two people</md-card-subtitle>-->

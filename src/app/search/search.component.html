@@ -1,12 +1,6 @@
 <md-toolbar>
-    <button style="margin-right:1em"
-        md-icon-button 
-        routerLink="/" 
-        routerLinkActive="Active" 
-        [routerLinkActiveOptions]="{exact: true}">
-        <md-icon style="font-size:2em;">arrow_back</md-icon>
-    </button>
-    <md-input-container color="accent" floatPlaceholder="never" style="width: 100%;" >
+    <app-nav-back [location]="this.location"></app-nav-back>
+    <md-input-container color="accent" floatPlaceholder="never" style="width: 80%;" >
         <input mdInput md-autofocus type="search" rows="1" placeholder="search...">
     </md-input-container>
 </md-toolbar>

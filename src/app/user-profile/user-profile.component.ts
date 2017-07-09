@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
@@ -10,7 +12,10 @@ import * as firebase from 'firebase/app';
 })
 export class UserProfileComponent implements OnInit {
   user: Observable<firebase.User>;
-  constructor(public afAuth: AngularFireAuth) {
+  constructor(
+    public afAuth: AngularFireAuth,
+    private location: Location
+  ) {
     this.user = afAuth.authState;
   }
 
