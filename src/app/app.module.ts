@@ -26,6 +26,7 @@ import { FoodCartComponent } from './food-cart/food-cart.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { FoodDataService } from 'app/app-frame/fooditem/fooditem.service';
+import { CartIconComponent } from './shared/ui-components/ui/cart-icon.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { FoodDataService } from 'app/app-frame/fooditem/fooditem.service';
     SearchComponent,
     FoodCartComponent,
     UserProfileComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    CartIconComponent
   ],
   imports: [
     BrowserModule,

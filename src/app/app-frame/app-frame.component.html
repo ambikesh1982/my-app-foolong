@@ -11,12 +11,7 @@
         <a md-icon-button routerLink="/search" routerLinkActive="active" mdTooltip="Search" mdTooltipShowDelay="1000">
           <md-icon>search</md-icon>
         </a>
-        <a md-icon-button routerLink="/food-cart" routerLinkActive="active" mdTooltip="Cart" mdTooltipShowDelay="1000">
-          <md-icon>add_shopping_cart</md-icon>
-          <span style="position:relative;vertical-align: super;font-size:medium; color:red;margin-left:0">
-                    {{fs.itemsInTheCart}}
-                </span>
-        </a>
+        <app-cart-icon [itemsInTheCart]="fs.itemsInTheCart"></app-cart-icon>
         <a md-icon-button routerLink="/profile" routerLinkActive="active" mdTooltip="Account" mdTooltipShowDelay="1000">
           <md-icon>account_circle</md-icon>
         </a>
