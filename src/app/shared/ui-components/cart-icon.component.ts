@@ -12,11 +12,13 @@ import { Component, Input } from '@angular/core';
   `,
   styles: [`
     .mycart {
-      position:relative;
-      vertical-align: super;
-      font-size:medium;
+      position:absolute;
+      bottom:12px;
+      right:5px;
+      text-align:center;
+      font-size:x-small;
+      font-weight:bold;
       color:red;
-      margin-left:0;
     }
   `]
 })

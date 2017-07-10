@@ -7,7 +7,7 @@ import { Location } from '@angular/common';
     template: `
         <div>
             <button md-icon-button (click)="location.back()">
-                <md-icon style="font-size:2em;">arrow_back</md-icon>
+                <md-icon>arrow_back</md-icon>
             </button>
         </div>`
 })
