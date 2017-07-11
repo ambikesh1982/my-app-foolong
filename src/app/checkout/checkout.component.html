@@ -1,6 +1,12 @@
-
-<md-toolbar>
-    <button md-icon-button (click)="goBack()"><md-icon style="font-size:2em;">arrow_back</md-icon></button>
-    Checkout Please 
-</md-toolbar>
-
+<div>
+    <md-toolbar>
+        <app-nav-back [location]="this.location"></app-nav-back>
+        Checkout Please
+    </md-toolbar>
+    <md-list>
+        <md-list-item>1. Shipping Details!</md-list-item>
+        <md-list-item>2. Review your order!</md-list-item>
+        <md-list-item>3. Payment!</md-list-item>
+        <md-list-item>4. Receipt!</md-list-item>
+    </md-list>
+</div>

@@ -18,6 +18,7 @@ const appRoutes: Routes = [
     { path: 'food-cart', component: FoodCartComponent },
     { path: 'search', component: SearchComponent },
     { path: 'profile', component: UserProfileComponent },
+    { path: 'checkout', component: CheckoutComponent}
 
 ];
 

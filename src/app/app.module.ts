@@ -22,12 +22,15 @@ import { FoodDetailComponent } from "./app-frame/fooditem/fooditem-detail/foodit
 import { AddFoodItem } from './add-fooditem/add-fooditem.component'
 import { PhotoUploadComponent } from './add-fooditem/photo-upload/photo-upload.component';
 import { SearchComponent } from './search/search.component';
-import { FoodCartComponent } from './food-cart/food-cart.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { FoodDataService } from 'app/app-frame/fooditem/fooditem.service';
 import { CartIconComponent } from './shared/ui-components/cart-icon.component';
 import { NavigateBackComponent } from "app/shared/ui-components/navigate-back.component";
+import { FoodCartComponent } from './food-cart/food-cart.component';
+import { FoodCartItemComponent } from './food-cart/food-cart-item.component';
+import { FoodCartSummaryComponent } from './food-cart/food-cart-summary.component';
+import { FoodCartFabComponent } from "./food-cart/food-cart-fab.component";
 
 @NgModule({
   declarations: [
@@ -39,11 +42,14 @@ import { NavigateBackComponent } from "app/shared/ui-components/navigate-back.co
     AddFoodItem,
     PhotoUploadComponent,
     SearchComponent,
-    FoodCartComponent,
     UserProfileComponent,
     CheckoutComponent,
     CartIconComponent,
-    NavigateBackComponent
+    NavigateBackComponent,
+    FoodCartComponent,
+    FoodCartItemComponent,
+    FoodCartSummaryComponent,
+    FoodCartFabComponent
   ],
   imports: [
     BrowserModule,
