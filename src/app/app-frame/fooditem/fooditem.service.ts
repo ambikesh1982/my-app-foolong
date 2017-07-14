@@ -1,5 +1,9 @@
-import { FoodItem } from 'app/app-frame/fooditem/fooditem.model';
+import { Injectable } from "@angular/core";
 
+import { FoodItem } from 'app/app-frame/fooditem/fooditem.model';
+import { FoodCartService } from "app/food-cart/food-cart.service";
+
+@Injectable()
 export class FoodDataService {
   private foodItems: FoodItem[]=[
           new FoodItem(11,'South Indian Meal','South Indian Thali is a great representation of the complex flavors and spices in Indian food','../../assets/images/sounth.jpeg'),
@@ -16,17 +20,14 @@ export class FoodDataService {
           new FoodItem(37,'Chicekn-65','Chicken 65 is a spicy, red, deep fried chicken chunks usually served as snack','../../assets/images/chicken-65.jpg'),
           new FoodItem(8,'Egg Curry','Indian Egg Curry is an egg recipe made with boiled fried eggs and spices','../../assets/images/egg-curry.jpg')
           ];
-  
-  private foodCartItems: FoodItem[]=[];
-  itemsInTheCart:number=0;
+
+  constructor(private fcs: FoodCartService){}
 
   addFoodCartItems(cartitem: FoodItem){
-    this.foodCartItems.push(cartitem);
+    this.fcs.addFoodCartItems(cartitem);
   }
  
- getFoodCartItems(){
-   return this.foodCartItems;
- }
+ 
   getFoodDItems(): Promise<FoodItem[]> {
     return Promise.resolve(this.foodItems);
   }

@@ -5,9 +5,11 @@ import { Component, Input } from '@angular/core';
   template: `
     <div class="done">
       <a 
+        md-fab
         *ngIf="itemsInTheCart === 0; else checkout" 
-        routerLink="/app-frame" routerLinkActive="active"
-        md-fab><md-icon>add</md-icon>
+        routerLink="/app-frame" 
+        routerLinkActive="active">
+        <md-icon>add</md-icon>
       </a>
       <ng-template #checkout>
         <a 

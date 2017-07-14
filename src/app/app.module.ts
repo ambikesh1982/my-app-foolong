@@ -31,6 +31,7 @@ import { FoodCartComponent } from './food-cart/food-cart.component';
 import { FoodCartItemComponent } from './food-cart/food-cart-item.component';
 import { FoodCartSummaryComponent } from './food-cart/food-cart-summary.component';
 import { FoodCartFabComponent } from "./food-cart/food-cart-fab.component";
+import { FoodCartService } from "app/food-cart/food-cart.service";
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { FoodCartFabComponent } from "./food-cart/food-cart-fab.component";
     AngularFireAuthModule
   ],
   providers: [
-    FoodDataService
+    FoodDataService,
+    FoodCartService
   ],
   bootstrap: [AppComponent]
 })

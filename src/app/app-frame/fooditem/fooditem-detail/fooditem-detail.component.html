@@ -1,11 +1,11 @@
     <div style="margin-bottom:40px">
         <md-toolbar>
-        <app-nav-back [location]="this.location"></app-nav-back>
+        <app-nav-back [location]="previousPage"></app-nav-back>
         <div>
             <a md-icon-button routerLink="/search" routerLinkActive="active" mdTooltip="Search" mdTooltipShowDelay="1000">
                 <md-icon>search</md-icon>
             </a>
-            <app-cart-icon [itemsInTheCart]="fs.itemsInTheCart"></app-cart-icon>
+            <app-cart-icon [itemsInTheCart]="itemsInTheCart"></app-cart-icon>
             <a md-icon-button routerLink="/profile" routerLinkActive="active" mdTooltip="Account" mdTooltipShowDelay="1000">
                 <md-icon>account_circle</md-icon>
             </a>
@@ -27,7 +27,13 @@
         background-color: white; 
         opacity: 100;">
         <tr>
-            <button md-button style="width:50%; color: aqua" (click)="onAddToCart()">ADD TO CART</button>
+            <button 
+                md-button 
+                style="width:50%; color: aqua" 
+                (click)="onAddToCart()"
+                routerLink="/food-cart" routerLinkActive="active">
+                ADD TO CART
+            </button>
             <button md-button color="accent" style="width:50%">BUY NOW</button>
         </tr>
     </table>
