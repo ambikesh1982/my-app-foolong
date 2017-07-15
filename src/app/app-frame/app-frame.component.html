@@ -3,18 +3,14 @@
     <md-toolbar>
       <div>
         <button md-icon-button (click)="start.toggle()">
-              <md-icon class="material-icons md-30">menu</md-icon>
-          </button>
+          <md-icon class="material-icons md-30">menu</md-icon>
+        </button>
         <span style="vertical-align:middle;">{{title}}</span>
       </div>
       <div>
-        <a md-icon-button routerLink="/search" routerLinkActive="active" mdTooltip="Search" mdTooltipShowDelay="1000">
-          <md-icon>search</md-icon>
-        </a>
-        <app-cart-icon [itemsInTheCart]="fs.itemsInTheCart"></app-cart-icon>
-        <a md-icon-button routerLink="/profile" routerLinkActive="active" mdTooltip="Account" mdTooltipShowDelay="1000">
-          <md-icon>account_circle</md-icon>
-        </a>
+        <app-search-icon></app-search-icon>
+        <app-cart-icon></app-cart-icon>
+        <app-account-icon></app-account-icon>
       </div>
       <md-toolbar-row>
         <div class="foolong-col-12 material-icons md-30" mdTooltip="Distance Slider" mdTooltipShowDelay="1000">
@@ -37,13 +33,13 @@
   </md-sidenav>
   <!-- MD SIDENAV: END -->
 
-  <div>
+  <div id="md-tab">
     <md-tab-group>
       <md-tab label="Instant offers">
         <div class="row">
           <div 
             class="foolong-col-3 foolong-col-m-6" 
-            *ngFor="let fooditem of foodItems;"
+            *ngFor="let fooditem of foodItems;" 
             [routerLink]="['/detail', fooditem.foodId]">
             <app-fooditem [fooditem]="fooditem"></app-fooditem>
           </div>

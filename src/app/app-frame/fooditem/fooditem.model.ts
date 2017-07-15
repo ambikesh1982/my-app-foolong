@@ -1,4 +1,4 @@
-export class FoodItem{
+export class FoodItem {
     foodId: number;
     // uploaderId: number;
     foodTitle: string;
@@ -15,11 +15,10 @@ export class FoodItem{
     // paymentMehotds: string;
 
 
-    constructor ( foodId: number,foodTitle: string,foodDescription: string,foodImagePath: string)
-    {
-        this.foodId=foodId;
-        this.foodTitle=foodTitle;
-        this.foodDescription=foodDescription;
-        this.foodImagePath=foodImagePath;
+    constructor(foodId: number, foodTitle: string, foodDescription: string, foodImagePath: string) {
+        this.foodId = foodId;
+        this.foodTitle = foodTitle;
+        this.foodDescription = foodDescription;
+        this.foodImagePath = foodImagePath;
     }
 }

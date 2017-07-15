@@ -26,12 +26,14 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { FoodDataService } from 'app/app-frame/fooditem/fooditem.service';
 import { CartIconComponent } from './shared/ui-components/cart-icon.component';
-import { NavigateBackComponent } from "app/shared/ui-components/navigate-back.component";
+import { NavigateBackComponent } from "./shared/ui-components/navigate-back.component";
 import { FoodCartComponent } from './food-cart/food-cart.component';
 import { FoodCartItemComponent } from './food-cart/food-cart-item.component';
 import { FoodCartSummaryComponent } from './food-cart/food-cart-summary.component';
 import { FoodCartFabComponent } from "./food-cart/food-cart-fab.component";
-import { FoodCartService } from "app/food-cart/food-cart.service";
+import { FoodCartService } from "./food-cart/food-cart.service";
+import { AccountIconComponent } from "./shared/ui-components/account-icon.component";
+import { SearchIconComponent } from "./shared/ui-components/search-icon.component";
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { FoodCartService } from "app/food-cart/food-cart.service";
     SearchComponent,
     UserProfileComponent,
     CheckoutComponent,
+    SearchIconComponent,
+    AccountIconComponent,
     CartIconComponent,
     NavigateBackComponent,
     FoodCartComponent,

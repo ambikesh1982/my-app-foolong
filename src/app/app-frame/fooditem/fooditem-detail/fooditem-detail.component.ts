@@ -14,9 +14,10 @@ import { FoodDataService } from "app/app-frame/fooditem/fooditem.service";
 })
 
 export class FoodDetailComponent implements OnInit {
-  foodItem:FoodItem;
-  itemsInTheCart:number;
+
+  foodItem: FoodItem;
   previousPage: Location;
+
   constructor(
     private fs: FoodDataService,
     private ar: ActivatedRoute,
@@ -25,7 +26,7 @@ export class FoodDetailComponent implements OnInit {
     }
   
   ngOnInit() {
-  this.ar.params
+    this.ar.params
         .switchMap((params: Params) => this.fs.getFoodDItem(+params['id']))
         .subscribe(foodItem => this.foodItem = foodItem); 
   }
@@ -33,4 +34,7 @@ export class FoodDetailComponent implements OnInit {
   onAddToCart(){
     this.fs.addFoodCartItems(this.foodItem);
     }
+
+  
+  
 }

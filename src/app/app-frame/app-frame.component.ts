@@ -12,7 +12,8 @@ import { FoodDataService } from './fooditem/fooditem.service';
 export class AppFrameComponent {
   title = 'Foodz9';
   foodItems: FoodItem[];
-  constructor(private fs: FoodDataService) { }
+
+  constructor(private fs: FoodDataService) {}
 
  ngOnInit():void{
         this.fs.getFoodDItems().then(foodItems => this.foodItems=foodItems);

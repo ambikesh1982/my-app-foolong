@@ -12,21 +12,20 @@ import { FoodCartService } from "app/food-cart/food-cart.service";
 export class FoodCartComponent implements OnInit {
 
  foodCartItems:FoodItem[];
- itemsInCart: number;
  previousPage: Location;
+ itemsInTheCart: number;
 
 constructor(
   private fcs: FoodCartService,
   private location: Location
 ) { 
    this.foodCartItems =[];
-   this.itemsInCart = 0;
    this.previousPage=this.location;
+   this.itemsInTheCart=fcs.itemsInTheCart;
 }
   
   ngOnInit() {
     this.foodCartItems = this.fcs.getFoodCartItems();
-    this.itemsInCart = this.foodCartItems.length;
   }
 
 }

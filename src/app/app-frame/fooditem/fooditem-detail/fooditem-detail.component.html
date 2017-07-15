@@ -1,40 +1,44 @@
-    <div style="margin-bottom:40px">
-        <md-toolbar>
+<div>
+    <md-toolbar>
         <app-nav-back [location]="previousPage"></app-nav-back>
         <div>
-            <a md-icon-button routerLink="/search" routerLinkActive="active" mdTooltip="Search" mdTooltipShowDelay="1000">
-                <md-icon>search</md-icon>
-            </a>
-            <app-cart-icon [itemsInTheCart]="itemsInTheCart"></app-cart-icon>
-            <a md-icon-button routerLink="/profile" routerLinkActive="active" mdTooltip="Account" mdTooltipShowDelay="1000">
-                <md-icon>account_circle</md-icon>
-            </a>
+            <app-search-icon></app-search-icon>
+            <app-cart-icon></app-cart-icon>
+            <app-account-icon></app-account-icon>
         </div>
     </md-toolbar>
-
     <div *ngIf="foodItem">
-        <img [src]="foodItem.foodImagePath" alt="{{foodItem.foodTitle}}">
-        <h3>{{foodItem.foodTitle}}: 200</h3>
-        {{foodItem.foodDescription}}
+        <md-card>
+            <h4>Served By: Ambikesh*</h4>
+            <md-card-content>
+                <md-icon>motorcycle</md-icon>
+                <md-icon>directions_run</md-icon>
+                <md-icon>attach_money</md-icon>
+                <md-icon>credit_card</md-icon>
+                <md-icon style="float:right">chat</md-icon>
+            </md-card-content>
+        </md-card>
+        <md-card style="margin-top:10px">
+            <img md-card-image [src]="foodItem.foodImagePath" alt="xyz">
+            <md-card-content>
+                <md-card-title>{{foodItem.foodTitle}}</md-card-title>
+                <md-card-subtitle style="color:#F4511E">INR 200</md-card-subtitle>
+                {{foodItem.foodDescription}}
+            </md-card-content>
+        </md-card>
+        <div>
+            <md-card style="margin-top:10px">
+                Ratings & Reviews
+                <md-icon style="float:right" *ngFor="let start of [1,2,3,4,5]">star_border</md-icon>
+            </md-card>
+            <md-list>
+                <md-list-item *ngFor="let rating of [1,2,3,4,5]">Product Reivew: {{rating}}</md-list-item>
+            </md-list>
+        </div>
+        <div class="done">
+            <a md-fab routerLink="/food-cart" routerLinkActive="active" (click)="onAddToCart()">
+                <md-icon>add</md-icon>
+            </a>
+        </div>
     </div>
-    </div>
-    
-    <table style="
-        height: 40px; 
-        position: fixed; 
-        bottom:0%;
-        width:100%; 
-        background-color: white; 
-        opacity: 100;">
-        <tr>
-            <button 
-                md-button 
-                style="width:50%; color: aqua" 
-                (click)="onAddToCart()"
-                routerLink="/food-cart" routerLinkActive="active">
-                ADD TO CART
-            </button>
-            <button md-button color="accent" style="width:50%">BUY NOW</button>
-        </tr>
-    </table>
-
+</div>

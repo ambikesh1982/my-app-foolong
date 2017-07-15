@@ -1,26 +1,26 @@
 <div style="margin-bottom:100px">
   <md-toolbar>
     <app-nav-back [location]="previousPage"></app-nav-back>
-    <app-cart-icon [itemsInTheCart]="itemsInCart"></app-cart-icon>
+    My Cart({{itemsInTheCart}})
   </md-toolbar>
-  <md-card *ngIf="itemsInCart === 0" style="text-align:center">
+  <md-card *ngIf="itemsInTheCart === 0" style="text-align:center">
     Your CART is empty: Go Shopping!
   </md-card>
   <div class="row">
-    <div class="foolong-col-4 foolong-col-m-6" *ngFor="let fcitems of foodCartItems; let i = index">
-      <app-food-cart-item [index]="i" [foodCartItem]="fcitems">
+    <div class="foolong-col-4 foolong-col-m-6" *ngFor="let fcitem of foodCartItems; let i = index">
+      <app-food-cart-item [index]="i" [foodCartItem]="fcitem">
       </app-food-cart-item>
     </div>
     <button 
       md-button 
-      *ngIf="itemsInCart !== 0" 
+      *ngIf="itemsInTheCart !== 0" 
       style="float:right;color:#0d47a1"
       routerLink="/app-frame" 
       routerLinkActive="active">
       <h3>Add More Items!</h3>
     </button>
-    <app-food-cart-summary *ngIf="itemsInCart !== 0" [itemsInTheCart]="itemsInCart" [amountPayable]="200">
+    <app-food-cart-summary *ngIf="itemsInTheCart !== 0" [itemsInTheCart]="itemsInTheCart" [amountPayable]="200">
     </app-food-cart-summary>
   </div>
 </div>
-<app-food-cart-fab [itemsInTheCart]="itemsInCart"></app-food-cart-fab>
+<app-food-cart-fab [itemsInTheCart]="itemsInTheCart"></app-food-cart-fab>
