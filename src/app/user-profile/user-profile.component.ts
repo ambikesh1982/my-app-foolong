@@ -18,17 +18,12 @@ export class UserProfileComponent implements OnInit {
   ) {
     this.user = afAuth.authState;
   }
-
-
-  ngOnInit() {  }
+  ngOnInit() { }
 
   login() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-}
+  }
   logout() {
     this.afAuth.auth.signOut();
   }
-  
-  
-
 }

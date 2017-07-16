@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FoodItem } from './fooditem/fooditem.model';
 import { FoodDataService } from './fooditem/fooditem.service';
-
 
 @Component({
   selector: 'app-frame',
@@ -9,13 +8,12 @@ import { FoodDataService } from './fooditem/fooditem.service';
   styleUrls: ['./app-frame.component.css'],
 })
 
-export class AppFrameComponent {
+export class AppFrameComponent implements OnInit {
   title = 'Foodz9';
   foodItems: FoodItem[];
+  constructor(private fs: FoodDataService) { }
 
-  constructor(private fs: FoodDataService) {}
-
- ngOnInit():void{
-        this.fs.getFoodDItems().then(foodItems => this.foodItems=foodItems);
-    };
+  ngOnInit(): void {
+    this.fs.getFoodDItems().then(foodItems => this.foodItems = foodItems);
+  };
 }

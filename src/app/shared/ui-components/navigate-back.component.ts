@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input } from '@angular/core';
 import { Location } from '@angular/common';
 
 
@@ -11,6 +11,6 @@ import { Location } from '@angular/common';
             </button>
         </div>`
 })
-export class NavigateBackComponent{
-@Input() location: Location;
+export class NavigateBackComponent {
+    @Input() location: Location;
 }

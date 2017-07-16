@@ -3,14 +3,18 @@ import { FoodItem } from 'app/app-frame/fooditem/fooditem.model';
 export class FoodCartService {
 
   private foodCartItems: FoodItem[];
-  itemsInTheCart: number;
+  private itemsInTheCart: number;
 
   constructor() {
     this.foodCartItems = [];
-    this.itemsInTheCart = 0;
+    this.itemsInTheCart = this.foodCartItems.length;
   }
 
-  getFoodCartItems() {
+  getFoodCartItemCount(): number {
+    return this.foodCartItems.length;
+  }
+
+  getFoodCartItems(): FoodItem[] {
     return this.foodCartItems;
   }
 
@@ -22,6 +26,10 @@ export class FoodCartService {
   deleteFoodCartItems(cartitem: FoodItem) {
     this.foodCartItems.splice(cartitem.foodId, 1);
     this.itemsInTheCart = this.foodCartItems.length;
+  }
+
+  calcAmountPayable() {
+    // calculate total amount payble for the items present in foodCartItems Array.
   }
 
 }

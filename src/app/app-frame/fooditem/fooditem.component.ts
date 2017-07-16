@@ -1,4 +1,4 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FoodItem } from 'app/app-frame/fooditem/fooditem.model';
 
 
@@ -8,6 +8,6 @@ import { FoodItem } from 'app/app-frame/fooditem/fooditem.model';
   styleUrls: ['./fooditem.component.css']
 })
 
-export class FoodItemComponent{
-  @Input() fooditem:FoodItem;
+export class FoodItemComponent {
+  @Input() fooditem: FoodItem;
 }

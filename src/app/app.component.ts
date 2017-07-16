@@ -6,14 +6,10 @@ import { Component, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 
-
-
 export class AppComponent {
   title = 'Foodz9';
-  fabicon='add';
-  onFabClick():void{
-    this.fabicon='camera';
+  fabicon = 'add';
+  onFabClick(): void {
+    this.fabicon = 'camera';
   }
-
-  
 }

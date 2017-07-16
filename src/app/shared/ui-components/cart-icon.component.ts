@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { FoodCartService } from "app/food-cart/food-cart.service";
+import { Component, OnInit } from '@angular/core';
+import { FoodCartService } from 'app/food-cart/food-cart.service';
 
 @Component({
   selector: 'app-cart-icon',
@@ -23,10 +23,10 @@ import { FoodCartService } from "app/food-cart/food-cart.service";
     }
   `]
 })
-export class CartIconComponent {
-  itemsInTheCart:number = 0;
-  constructor(private fcs:FoodCartService) { 
-    this.itemsInTheCart = fcs.itemsInTheCart;
+export class CartIconComponent implements OnInit {
+  itemsInTheCart = 0;
+  constructor(private fcs: FoodCartService) {
+    this.itemsInTheCart = fcs.getFoodCartItemCount();
   }
 
   ngOnInit() {

@@ -18,22 +18,23 @@ import { AppComponent } from './app.component';
 import { AppFrameComponent } from './app-frame/app-frame.component';
 import { AppSidenavComponent } from './app-frame/app-sidenav.component';
 import { FoodItemComponent } from './app-frame/fooditem/fooditem.component';
-import { FoodDetailComponent } from "./app-frame/fooditem/fooditem-detail/fooditem-detail.component";
-import { AddFoodItem } from './add-fooditem/add-fooditem.component'
+import { FoodDetailComponent } from './app-frame/fooditem/fooditem-detail/fooditem-detail.component';
+import { AddFoodItemComponent } from './add-fooditem/add-fooditem.component';
 import { PhotoUploadComponent } from './add-fooditem/photo-upload/photo-upload.component';
 import { SearchComponent } from './search/search.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { FoodDataService } from 'app/app-frame/fooditem/fooditem.service';
 import { CartIconComponent } from './shared/ui-components/cart-icon.component';
-import { NavigateBackComponent } from "./shared/ui-components/navigate-back.component";
+import { NavigateBackComponent } from './shared/ui-components/navigate-back.component';
 import { FoodCartComponent } from './food-cart/food-cart.component';
 import { FoodCartItemComponent } from './food-cart/food-cart-item.component';
 import { FoodCartSummaryComponent } from './food-cart/food-cart-summary.component';
-import { FoodCartFabComponent } from "./food-cart/food-cart-fab.component";
-import { FoodCartService } from "./food-cart/food-cart.service";
-import { AccountIconComponent } from "./shared/ui-components/account-icon.component";
-import { SearchIconComponent } from "./shared/ui-components/search-icon.component";
+import { FoodCartFabComponent } from './food-cart/food-cart-fab.component';
+import { FoodCartService } from './food-cart/food-cart.service';
+import { AccountIconComponent } from './shared/ui-components/account-icon.component';
+import { SearchIconComponent } from './shared/ui-components/search-icon.component';
+import { LoginComponent } from 'app/user-profile/login/login.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { SearchIconComponent } from "./shared/ui-components/search-icon.componen
     AppSidenavComponent,
     FoodItemComponent,
     FoodDetailComponent,
-    AddFoodItem,
+    AddFoodItemComponent,
     PhotoUploadComponent,
     SearchComponent,
     UserProfileComponent,
@@ -54,7 +55,8 @@ import { SearchIconComponent } from "./shared/ui-components/search-icon.componen
     FoodCartComponent,
     FoodCartItemComponent,
     FoodCartSummaryComponent,
-    FoodCartFabComponent
+    FoodCartFabComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

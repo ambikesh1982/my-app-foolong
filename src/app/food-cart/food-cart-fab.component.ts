@@ -22,11 +22,11 @@ import { Component, Input } from '@angular/core';
     </div>
   `,
 })
-export class FoodCartFabComponent{
+export class FoodCartFabComponent {
 
- @Input() itemsInTheCart: number;
+  @Input() itemsInTheCart: number;
 
- constructor(){
-   this.itemsInTheCart = 0;
- }
+  constructor() {
+    this.itemsInTheCart = 0;
+  }
 }

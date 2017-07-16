@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 
-import {FoodItem} from '../app-frame/fooditem/fooditem.model';
-import { Subject } from "rxjs/Subject";
+import { FoodItem } from '../app-frame/fooditem/fooditem.model';
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'app-food-cart-item',
@@ -14,7 +14,7 @@ export class FoodCartItemComponent {
 
   constructor() { }
 
-  onDelete(foodItem: FoodItem){
+  onDelete(foodItem: FoodItem) {
     console.log(foodItem);
   }
 }
