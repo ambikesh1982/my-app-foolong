@@ -7,22 +7,22 @@ import { FoodCartService } from 'app/food-cart/food-cart.service';
 export class FoodDataService {
   private foodItems: FoodItem[] = [
     new FoodItem(
-        11,
+        1,
         'South Indian Meal',
         'South Indian Thali is a great representation of the complex flavors and spices in Indian food',
         '../../assets/images/sounth.jpeg'),
     new FoodItem(
-        12,
+        2,
         'North Indian Thali',
         'North Indian cuisine (उत्तर भारतीय व्यंजन) is a part of Indian cuisine, from the region of Northern India',
         '../../assets/images/dish.jpg'),
     new FoodItem(
-        21,
+        3,
         'Gujraati Thaali',
         'The typical Gujarati thali consists of rotli, dal or kadhi, rice, and Sabji',
         '../../assets/images/sattvic-food.jpg'),
     new FoodItem(
-        22,
+        4,
         'Pasta',
         'Melted butter in a saucepan with cheese & Milk.The creamy sauce mixed with pene',
         '../../assets/images/pasta.jpg'),

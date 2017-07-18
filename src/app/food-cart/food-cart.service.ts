@@ -25,10 +25,10 @@ export class FoodCartService {
     this.itemsInTheCart = this.foodCartItems.length;
   }
 
-  deleteFoodCartItems(cartitem: FoodItem) {
-    console.log(cartitem.foodId);
-    this.foodCartItems.splice(cartitem.foodId, 1);
-    this.CartItemDelete.next(this.foodCartItems.slice());
+  deleteFoodCartItems(cartitemidx: number) {
+    console.log(cartitemidx);
+    this.foodCartItems.splice(cartitemidx, 1);
+    //this.CartItemDelete.next(this.foodCartItems);
     this.itemsInTheCart = this.foodCartItems.length;
   }
 

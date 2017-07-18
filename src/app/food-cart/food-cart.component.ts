@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { Location } from '@angular/common';
 
 import { FoodItem } from '../app-frame/fooditem/fooditem.model';
@@ -22,9 +22,14 @@ export class FoodCartComponent implements OnInit {
     this.previousPage = this.location;
   }
 
+
   ngOnInit() {
     this.foodCartItems = this.fcs.getFoodCartItems();
     this.itemsInTheCart = this.foodCartItems.length;
   }
 
+onDeleteCartItem(arrayIndextoDelete: number){
+  this.fcs.deleteFoodCartItems(arrayIndextoDelete);
+  this.itemsInTheCart = this.foodCartItems.length;
+}
 }

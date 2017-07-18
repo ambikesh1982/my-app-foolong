@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 
 
@@ -15,12 +15,13 @@ import { Subject } from 'rxjs/Subject';
 export class FoodCartItemComponent {
   @Input() index: number;
   @Input() foodCartItem: FoodItem;
+  @Output() onCartItemChange = new EventEmitter<number>();
 
   constructor(private fcs: FoodCartService) 
   { }
 
-  onDelete(foodItem: FoodItem) {
-    console.log(foodItem);
-    this.fcs.deleteFoodCartItems(foodItem);
+  onDeleteCartItem(arrayIndextoDelete:number) {
+    this.onCartItemChange.emit(arrayIndextoDelete);
+    //this.onClear();
   }
 }
