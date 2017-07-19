@@ -28,8 +28,8 @@ export class FoodCartComponent implements OnInit {
     this.itemsInTheCart = this.foodCartItems.length;
   }
 
-onDeleteCartItem(arrayIndextoDelete: number){
-  this.fcs.deleteFoodCartItems(arrayIndextoDelete);
-  this.itemsInTheCart = this.foodCartItems.length;
-}
+  onDeleteCartItem(arrayIndextoDelete: number) {
+    this.fcs.deleteFoodCartItems(arrayIndextoDelete);
+    this.itemsInTheCart = this.foodCartItems.length;
+  }
 }

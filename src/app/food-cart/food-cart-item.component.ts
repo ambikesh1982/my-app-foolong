@@ -14,11 +14,9 @@ export class FoodCartItemComponent {
   @Input() foodCartItem: FoodItem;
   @Output() onCartItemChange = new Subject<number>();
 
-  constructor() 
-  { }
+  constructor() { }
 
-  onDeleteCartItem(arrayIndextoDelete:number) {
+  onDeleteCartItem(arrayIndextoDelete: number) {
     this.onCartItemChange.next(arrayIndextoDelete);
-    //this.onClear();
   }
 }

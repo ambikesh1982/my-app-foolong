@@ -2,8 +2,8 @@ import { FoodItem } from 'app/app-frame/fooditem/fooditem.model';
 import { Subject } from 'rxjs/Subject';
 
 export class FoodCartService {
- 
- CartItemDelete = new Subject<FoodItem[]>();
+
+  CartItemDelete = new Subject<FoodItem[]>();
   private foodCartItems: FoodItem[];
   private itemsInTheCart: number;
 
@@ -28,7 +28,6 @@ export class FoodCartService {
   deleteFoodCartItems(cartitemidx: number) {
     console.log(cartitemidx);
     this.foodCartItems.splice(cartitemidx, 1);
-    //this.CartItemDelete.next(this.foodCartItems);
     this.itemsInTheCart = this.foodCartItems.length;
   }
 
