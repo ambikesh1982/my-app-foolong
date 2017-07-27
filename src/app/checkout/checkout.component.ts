@@ -9,5 +9,5 @@ import { Location } from '@angular/common';
 })
 
 export class CheckoutComponent {
-  constructor(private location: Location) { }
+  constructor(public location: Location) { }
 }

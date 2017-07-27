@@ -14,7 +14,7 @@ export class UserProfileComponent implements OnInit {
   user: Observable<firebase.User>;
   constructor(
     public afAuth: AngularFireAuth,
-    private location: Location
+    public location: Location
   ) {
     this.user = afAuth.authState;
   }

@@ -18,7 +18,7 @@ export class AddFoodItemComponent {
         { stepIndex: 4, stepTitle: 'Location is everyting', stepWeight: 100 },
         { stepIndex: 5, stepTitle: 'Happy cooking!', stepWeight: 100 }
     ];
-    constructor(private location: Location) { }
+    constructor(public location: Location) { }
 
     onClickNext() { this.index = this.index + 1; }
 

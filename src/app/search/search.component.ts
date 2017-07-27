@@ -8,7 +8,7 @@ import { Location } from '@angular/common';
 })
 export class SearchComponent implements OnInit {
 
-  constructor(private location: Location) { }
+  constructor(public location: Location) { }
 
   ngOnInit() {
   }
