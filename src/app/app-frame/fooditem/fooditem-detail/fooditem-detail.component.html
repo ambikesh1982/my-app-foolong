@@ -20,10 +20,10 @@
             </md-card-content>
         </md-card>
         <md-card style="margin-top:10px">
-            <img md-card-image [src]="foodItem.foodImagePath" alt="xyz">
+            <img md-card-image [src]="foodItem.foodImageURL" alt="xyz">
             <md-card-content>
                 <md-card-title>{{foodItem.foodTitle}}</md-card-title>
-                <md-card-subtitle style="color:#F4511E">INR 200</md-card-subtitle>
+                <md-card-subtitle style="color:#F4511E">{{foodItem.foodPrice}}</md-card-subtitle>
                 {{foodItem.foodDescription}}
             </md-card-content>
         </md-card>

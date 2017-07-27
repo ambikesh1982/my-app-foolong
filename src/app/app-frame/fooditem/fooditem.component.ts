@@ -9,5 +9,5 @@ import { FoodItem } from 'app/app-frame/fooditem/fooditem.model';
 })
 
 export class FoodItemComponent {
-  @Input() fooditem: FoodItem;
+  @Input() foodItem: FoodItem;
 }

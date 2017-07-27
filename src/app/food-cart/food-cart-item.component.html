@@ -1,10 +1,10 @@
 <md-card>
     <h4>{{index+1}}. {{foodCartItem.foodTitle}}</h4>
     <md-card-title-group>
-        <img md-card-sm-image [src]="foodCartItem.foodImagePath" alt="foodCartItem.foodTitle">
+        <img md-card-sm-image [src]="foodCartItem.foodImageURL" alt="foodCartItem.foodTitle">
         <md-card-subtitle>Seller: Ambikesh</md-card-subtitle>
         <md-card-subtitle>Serves 2 per portion.</md-card-subtitle>
-        <md-card-subtitle>INR 200 per portion.</md-card-subtitle>
+        <md-card-subtitle>{{foodCartItem.foodPrice}} per portion.</md-card-subtitle>
     </md-card-title-group>
     <md-card-actions>
         <button md-icon-button>
@@ -14,7 +14,7 @@
         <button md-icon-button>
           <md-icon>add</md-icon>
         </button>
-        <span style="font-weight:bold">INR 200</span>
+        <span style="font-weight:bold">{{foodCartItem.foodPrice}}</span>
         <button md-icon-button (click)="onDeleteCartItem(index)" style="float:right">
           <md-icon >delete_sweep
         </md-icon></button>

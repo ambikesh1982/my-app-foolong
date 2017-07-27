@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FoodItem } from './fooditem/fooditem.model';
 import { FoodDataService } from './fooditem/fooditem.service';
+import { FirebaseListObservable } from "angularfire2/database";
 
 @Component({
   selector: 'app-frame',
@@ -10,10 +11,12 @@ import { FoodDataService } from './fooditem/fooditem.service';
 
 export class AppFrameComponent implements OnInit {
   title = 'Foodz9';
-  foodItems: FoodItem[];
+  foodItems: FirebaseListObservable<FoodItem[]>;
+  isLoading:boolean = false;
   constructor(private fs: FoodDataService) { }
 
   ngOnInit(): void {
-    this.fs.getFoodDItems().then(foodItems => this.foodItems = foodItems);
+    // this.fs.getFoodDItems().then(foodItems => this.foodItems = foodItems);
+    this.foodItems = this.fs.getFoodItemList();
   };
 }

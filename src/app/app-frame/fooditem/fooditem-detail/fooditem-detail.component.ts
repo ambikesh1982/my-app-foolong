@@ -5,6 +5,7 @@ import 'rxjs/add/operator/switchMap';
 
 import { FoodItem } from 'app/app-frame/fooditem/fooditem.model';
 import { FoodDataService } from 'app/app-frame/fooditem/fooditem.service';
+import { FirebaseObjectObservable } from "angularfire2/database";
 
 @Component({
   selector: 'app-detail',
@@ -14,6 +15,7 @@ import { FoodDataService } from 'app/app-frame/fooditem/fooditem.service';
 
 export class FoodDetailComponent implements OnInit {
   foodItem: FoodItem;
+  fi: FirebaseObjectObservable<FoodItem>;
   previousPage: Location;
 
   constructor(
@@ -25,8 +27,8 @@ export class FoodDetailComponent implements OnInit {
 
   ngOnInit() {
     this.ar.params
-      .switchMap((params: Params) => this.fs.getFoodDItem(+params['id']))
-      .subscribe(foodItem => this.foodItem = foodItem);
+      .switchMap((params: Params) => this.fs.getFoodItem(params['id']))
+      .subscribe(f => this.foodItem = f);
   }
 
   onAddToCart() {
