@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from "angularfire2/database";
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 
 import { FoodItem } from 'app/app-frame/fooditem/fooditem.model';
 import { FoodCartService } from 'app/food-cart/food-cart.service';
 
 @Injectable()
 export class FoodDataService {
-    private basePath: string = '/foodz9Items';
+    private basePath = '/foodz9Items';
     foodItemList: FirebaseListObservable<FoodItem[]>;
     foodItemObject: FirebaseObjectObservable<FoodItem>;
 
@@ -26,10 +26,10 @@ export class FoodDataService {
     //     return Promise.resolve(this.foodItems);
     //   }
     getFoodItem(key: string): FirebaseObjectObservable<FoodItem> {
-    const foodItemPath = `${this.basePath}/${key}`;
-    this.foodItemObject = this.fdb.object(foodItemPath);
-    return this.foodItemObject;
-  }
+        const foodItemPath = `${this.basePath}/${key}`;
+        this.foodItemObject = this.fdb.object(foodItemPath);
+        return this.foodItemObject;
+    }
 
 
     //   getFoodDItem(id: number): Promise<FoodItem> {

@@ -8,6 +8,5 @@ export class FoodItem {
         public foodCuisine: string,
         public foodPrice: number,
         public foodServing: number,
-        public foodImageURL: string)
-    { }
+        public foodImageURL: string) { }
 }

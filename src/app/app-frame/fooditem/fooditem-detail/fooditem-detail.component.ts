@@ -5,7 +5,7 @@ import 'rxjs/add/operator/switchMap';
 
 import { FoodItem } from 'app/app-frame/fooditem/fooditem.model';
 import { FoodDataService } from 'app/app-frame/fooditem/fooditem.service';
-import { FirebaseObjectObservable } from "angularfire2/database";
+import { FirebaseObjectObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-detail',
