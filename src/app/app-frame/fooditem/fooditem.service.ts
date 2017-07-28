@@ -41,7 +41,7 @@ export class FoodDataService {
 
     deleteFoodItem(id: number) { }
 
-    addFoodCartItems(cartitem: FoodItem) {
-        this.fcs.addFoodCartItems(cartitem);
+    addToFoodCart(cartitem: FoodItem) {
+        this.fcs.addToCart(cartitem);
     }
 }

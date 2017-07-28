@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FoodCartService } from 'app/food-cart/food-cart.service';
+import { Subscription } from "rxjs/Subscription";
 
 @Component({
   selector: 'app-cart-icon',
@@ -23,13 +24,25 @@ import { FoodCartService } from 'app/food-cart/food-cart.service';
     }
   `]
 })
-export class CartIconComponent implements OnInit {
+export class CartIconComponent implements OnInit,OnDestroy {
   itemsInTheCart = 0;
+  subscription: Subscription;
   constructor(private fcs: FoodCartService) {
-    this.itemsInTheCart = fcs.getFoodCartItemCount();
   }
 
   ngOnInit() {
+    console.log('ngOnInit: CartIconComponent Initialized');
+    this.subscription=this.fcs.itemsInTheCart.subscribe(
+      (value)=>{
+        this.itemsInTheCart=value;
+      },
+      (err)=>console.log(err)
+    );
+  }
+
+  ngOnDestroy(){
+    console.log('ngOnDestroy: CartIconComponent destroyed');
+    this.subscription.unsubscribe();
   }
 
 }

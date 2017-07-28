@@ -1,33 +1,25 @@
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+
 import { FoodItem } from 'app/app-frame/fooditem/fooditem.model';
-import { Subject } from 'rxjs/Subject';
 
 export class FoodCartService {
-
   private foodCartItems: FoodItem[];
-  private itemsInTheCart: number;
+  itemsInTheCart = new BehaviorSubject(0);
+  
+  constructor() { this.foodCartItems = []; }
 
-  constructor() {
-    this.foodCartItems = [];
-    this.itemsInTheCart = this.foodCartItems.length;
-  }
-
-  getFoodCartItemCount(): number {
-    return this.foodCartItems.length;
-  }
-
-  getFoodCartItems(): FoodItem[] {
+  getCartItems(): FoodItem[] {
     return this.foodCartItems;
   }
 
-  addFoodCartItems(cartitem: FoodItem) {
+  addToCart(cartitem: FoodItem) {
     this.foodCartItems.push(cartitem);
-    this.itemsInTheCart = this.foodCartItems.length;
+    this.itemsInTheCart.next(this.foodCartItems.length);
   }
 
-  deleteFoodCartItems(cartitemidx: number) {
-    console.log(cartitemidx);
+  deleteCartItems(cartitemidx: number) {
     this.foodCartItems.splice(cartitemidx, 1);
-    this.itemsInTheCart = this.foodCartItems.length;
+    this.itemsInTheCart.next(this.foodCartItems.length);
   }
 
   calcAmountPayable() {
