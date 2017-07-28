@@ -22,24 +22,22 @@ export class FoodDataService {
         return this.foodItemList;
     }
 
-    //   getFoodDItems(): Promise<FoodItem[]> {
-    //     return Promise.resolve(this.foodItems);
-    //   }
     getFoodItem(key: string): FirebaseObjectObservable<FoodItem> {
+        // Uses Firebase db generated key to pull single food item as object.
         const foodItemPath = `${this.basePath}/${key}`;
         this.foodItemObject = this.fdb.object(foodItemPath);
         return this.foodItemObject;
     }
 
+    updateFoddItem(id: number) { 
+        // Only for logged-in user.
+        // He can update his own posts only.
+    }
 
-    //   getFoodDItem(id: number): Promise<FoodItem> {
-    //     return this.getFoodDItems()
-    //       .then(foodItems => foodItems.find(foodItem => foodItem.foodId === id));
-    //   }
-
-    updateFoddItem(id: number) { }
-
-    deleteFoodItem(id: number) { }
+    deleteFoodItem(id: number) {
+        // Only for logged-in user.
+        // He can delete his own posts only.
+     }
 
     addToFoodCart(cartitem: FoodItem) {
         this.fcs.addToCart(cartitem);
