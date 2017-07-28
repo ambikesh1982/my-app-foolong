@@ -3,7 +3,6 @@ import { Subject } from 'rxjs/Subject';
 
 export class FoodCartService {
 
-  CartItemDelete = new Subject<FoodItem[]>();
   private foodCartItems: FoodItem[];
   private itemsInTheCart: number;
 
