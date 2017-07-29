@@ -11,7 +11,7 @@ import { Subscription } from "rxjs/Subscription";
 })
 
 export class AppFrameComponent implements OnInit, OnDestroy {
-  title = 'Foodz9';
+  title = 'Foodz9_UAT';
   isLoading = true;
   subscription: Subscription;
   foodItems: FirebaseListObservable<FoodItem[]>;
