@@ -14,11 +14,11 @@ export class AppFrameComponent implements OnInit, OnDestroy {
   title = 'Foodz9_Dev';
   isLoading = true;
   subscription: Subscription;
-  foodItems: FirebaseListObservable<FoodItem[]>;
+  dbListfoodItems: FirebaseListObservable<FoodItem[]>;
   constructor(private fs: FoodDataService) { }
 
   ngOnInit(): void {
-    this.foodItems = this.fs.getFoodItemList();
+    this.dbListfoodItems = this.fs.getFoodItemList();
 //<<<<<<< HEAD
     
       
@@ -32,7 +32,7 @@ export class AppFrameComponent implements OnInit, OnDestroy {
     // Subscribe takes 3 arguments in order. 1. Data, 2. Error and 3. Complete
     // FirebaseListObservable never completes as it sets active communication with
     // Firebase database to pull latest changes. So no need for 3rd argument.
-    this.subscription = this.foodItems.subscribe(
+    this.subscription = this.dbListfoodItems.subscribe(
       () => this.isLoading = false,
       (e) =>console.log(e)
     )
