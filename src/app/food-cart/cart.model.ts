@@ -7,7 +7,7 @@ import { FoodItem } from "app/app-frame/fooditem/fooditem.model";
 
 export class Cart {
     _userId: string; //If auth is false, assign _session_id.
-    status: string; //intilized value = active. other values could be expired and complete.
+    status: string; //intilized value = active. other values could be in-progress, expired and complete.
     quantity: number;
     amtPayable: number; 
     cartItems: FoodItem[];
