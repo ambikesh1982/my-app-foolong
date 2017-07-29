@@ -6,6 +6,7 @@ import 'rxjs/add/operator/switchMap';
 import { FoodItem } from 'app/app-frame/fooditem/fooditem.model';
 import { FoodDataService } from 'app/app-frame/fooditem/fooditem.service';
 import { FirebaseObjectObservable } from 'angularfire2/database';
+import { Subscription } from "rxjs/Subscription";
 
 @Component({
   selector: 'app-detail',
@@ -15,8 +16,9 @@ import { FirebaseObjectObservable } from 'angularfire2/database';
 
 export class FoodDetailComponent implements OnInit {
   foodItem: FoodItem;
-  fi: FirebaseObjectObservable<FoodItem>;
   previousPage: Location;
+  fi: FirebaseObjectObservable<FoodItem>;
+  subscription: Subscription;
 
   constructor(
     private fs: FoodDataService,
@@ -25,13 +27,20 @@ export class FoodDetailComponent implements OnInit {
     this.previousPage = this.location;
   }
 
-  ngOnInit() {
-    this.ar.params
+  ngOnInit(): void {
+    // Uses Angular router's Params observable to get rout parameters.
+    // foodItem in subscribe is the foodItem returned by getFoodItem function. 
+    this.subscription = this.ar.params
       .switchMap((params: Params) => this.fs.getFoodItem(params['id']))
-      .subscribe(f => this.foodItem = f);
+      .subscribe(foodItem => this.foodItem = foodItem);
   }
 
-  onAddToCart() {
-    this.fs.addFoodCartItems(this.foodItem);
+  onAddToCart(): void {
+    this.fs.addToFoodCart(this.foodItem);
+  }
+
+  ngOnDestroy(): void {
+    // Unsubscribe to avoid memory leak issues.
+    this.subscription.unsubscribe();
   }
 }

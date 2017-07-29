@@ -6,9 +6,16 @@ import { FoodCartService } from 'app/food-cart/food-cart.service';
 
 @Injectable()
 export class FoodDataService {
+
+  // # # # Code Comment  # # #
+  // Setting up all the porperties as private.
+  // These can not be set from out side of this class.
+  // Only getter and setter methods can access or alter the values.
+  // # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
     private basePath = '/foodz9Items';
-    foodItemList: FirebaseListObservable<FoodItem[]>;
-    foodItemObject: FirebaseObjectObservable<FoodItem>;
+    private foodItemList: FirebaseListObservable<FoodItem[]>;
+    private foodItemObject: FirebaseObjectObservable<FoodItem>;
 
     constructor(
         private fcs: FoodCartService,
@@ -22,27 +29,25 @@ export class FoodDataService {
         return this.foodItemList;
     }
 
-    //   getFoodDItems(): Promise<FoodItem[]> {
-    //     return Promise.resolve(this.foodItems);
-    //   }
     getFoodItem(key: string): FirebaseObjectObservable<FoodItem> {
+        // Uses Firebase db generated key to pull single food item as object.
         const foodItemPath = `${this.basePath}/${key}`;
         this.foodItemObject = this.fdb.object(foodItemPath);
         return this.foodItemObject;
     }
 
+    updateFoddItem(id: number) { 
+        // Only for logged-in user.
+        // He can update his own posts only.
+    }
 
-    //   getFoodDItem(id: number): Promise<FoodItem> {
-    //     return this.getFoodDItems()
-    //       .then(foodItems => foodItems.find(foodItem => foodItem.foodId === id));
-    //   }
+    deleteFoodItem(id: number) {
+        // Only for logged-in user.
+        // He can delete his own posts only.
+     }
 
-    updateFoddItem(id: number) { }
-
-    deleteFoodItem(id: number) { }
-
-    addFoodCartItems(cartitem: FoodItem) {
-        this.fcs.addFoodCartItems(cartitem);
+    addToFoodCart(cartitem: FoodItem) {
+        this.fcs.addToCart(cartitem);
     }
 
     createItem(fd: FoodItem) {

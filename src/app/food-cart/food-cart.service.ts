@@ -1,34 +1,37 @@
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+
 import { FoodItem } from 'app/app-frame/fooditem/fooditem.model';
-import { Subject } from 'rxjs/Subject';
+import { Observable } from "rxjs/Observable";
 
 export class FoodCartService {
 
-  CartItemDelete = new Subject<FoodItem[]>();
+  // # # # Code Comment  # # #
+  // Setting up all the porperties as private.
+  // These can not be set from out side of this class.
+  // Only getter and setter methods can access or alter the values.
+  // # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
   private foodCartItems: FoodItem[];
-  private itemsInTheCart: number;
+  private itemsInTheCart = new BehaviorSubject(0);
+  
+  constructor() { this.foodCartItems = []; }
 
-  constructor() {
-    this.foodCartItems = [];
-    this.itemsInTheCart = this.foodCartItems.length;
-  }
-
-  getFoodCartItemCount(): number {
-    return this.foodCartItems.length;
-  }
-
-  getFoodCartItems(): FoodItem[] {
+  getCartItems(): FoodItem[] {
     return this.foodCartItems;
   }
 
-  addFoodCartItems(cartitem: FoodItem) {
+  addToCart(cartitem: FoodItem) {
     this.foodCartItems.push(cartitem);
-    this.itemsInTheCart = this.foodCartItems.length;
+    this.itemsInTheCart.next(this.foodCartItems.length);
   }
 
-  deleteFoodCartItems(cartitemidx: number) {
-    console.log(cartitemidx);
+  deleteCartItems(cartitemidx: number) {
     this.foodCartItems.splice(cartitemidx, 1);
-    this.itemsInTheCart = this.foodCartItems.length;
+    this.itemsInTheCart.next(this.foodCartItems.length);
+  }
+
+  getCartSize():Observable<number>{
+    return this.itemsInTheCart.asObservable();
   }
 
   calcAmountPayable() {
