@@ -6,9 +6,16 @@ import { FoodCartService } from 'app/food-cart/food-cart.service';
 
 @Injectable()
 export class FoodDataService {
+
+  // # # # Code Comment  # # #
+  // Setting up all the porperties as private.
+  // These can not be set from out side of this class.
+  // Only getter and setter methods can access or alter the values.
+  // # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
     private basePath = '/foodz9Items';
-    foodItemList: FirebaseListObservable<FoodItem[]>;
-    foodItemObject: FirebaseObjectObservable<FoodItem>;
+    private foodItemList: FirebaseListObservable<FoodItem[]>;
+    private foodItemObject: FirebaseObjectObservable<FoodItem>;
 
     constructor(
         private fcs: FoodCartService,

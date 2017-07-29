@@ -1,10 +1,18 @@
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { FoodItem } from 'app/app-frame/fooditem/fooditem.model';
+import { Observable } from "rxjs/Observable";
 
 export class FoodCartService {
+
+  // # # # Code Comment  # # #
+  // Setting up all the porperties as private.
+  // These can not be set from out side of this class.
+  // Only getter and setter methods can access or alter the values.
+  // # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
   private foodCartItems: FoodItem[];
-  itemsInTheCart = new BehaviorSubject(0);
+  private itemsInTheCart = new BehaviorSubject(0);
   
   constructor() { this.foodCartItems = []; }
 
@@ -20,6 +28,10 @@ export class FoodCartService {
   deleteCartItems(cartitemidx: number) {
     this.foodCartItems.splice(cartitemidx, 1);
     this.itemsInTheCart.next(this.foodCartItems.length);
+  }
+
+  getCartSize():Observable<number>{
+    return this.itemsInTheCart.asObservable();
   }
 
   calcAmountPayable() {

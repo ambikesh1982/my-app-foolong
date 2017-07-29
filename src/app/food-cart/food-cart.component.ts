@@ -24,7 +24,7 @@ export class FoodCartComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.foodCartItems = this.fcs.getCartItems();
-    this.subscription = this.fcs.itemsInTheCart.subscribe(
+    this.subscription = this.fcs.getCartSize().subscribe(
       (val) => this.itemsInTheCart = val,
       (err) => console.log(err)
     );

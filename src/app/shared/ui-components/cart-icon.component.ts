@@ -32,7 +32,7 @@ export class CartIconComponent implements OnInit,OnDestroy {
 
   ngOnInit() {
     console.log('ngOnInit: CartIconComponent Initialized');
-    this.subscription=this.fcs.itemsInTheCart.subscribe(
+    this.subscription=this.fcs.getCartSize().subscribe(
       (value)=>{
         this.itemsInTheCart=value;
       },
