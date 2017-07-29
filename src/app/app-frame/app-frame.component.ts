@@ -19,13 +19,13 @@ export class AppFrameComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.foodItems = this.fs.getFoodItemList();
-<<<<<<< HEAD
+//<<<<<<< HEAD
     
       
       //this.fs.createItem(FOODDATA);
     //  for (var i = 0, len = FOODDATA.length; i < len; i++) {
     //  this.fs.createItem(FOODDATA[i])
-=======
+//=======
     // Subscribing to FirebaseListObservable to set
     // isLoading = false once we start getting data
     // from Firebase Database. 
@@ -42,8 +42,8 @@ export class AppFrameComponent implements OnInit, OnDestroy {
     // Unsubscribe to avoid memory leak issues.
     this.subscription.unsubscribe();
   }
->>>>>>> refs/remotes/origin/Dev_Branch
-}
+//>>>>>>> refs/remotes/origin/Dev_Branch
+
   
   };
   
