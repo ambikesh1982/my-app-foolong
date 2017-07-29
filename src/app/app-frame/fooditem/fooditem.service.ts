@@ -44,4 +44,10 @@ export class FoodDataService {
     addFoodCartItems(cartitem: FoodItem) {
         this.fcs.addFoodCartItems(cartitem);
     }
+
+    createItem(fd: FoodItem) {
+        this.foodItemList.push(fd);
+    }
+
+
 }

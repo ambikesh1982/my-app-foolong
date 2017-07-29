@@ -18,5 +18,13 @@ export class AppFrameComponent implements OnInit {
   ngOnInit(): void {
     // this.fs.getFoodDItems().then(foodItems => this.foodItems = foodItems);
     this.foodItems = this.fs.getFoodItemList();
-  };
+    
+      
+      //this.fs.createItem(FOODDATA);
+    //  for (var i = 0, len = FOODDATA.length; i < len; i++) {
+    //  this.fs.createItem(FOODDATA[i])
 }
+  
+  };
+  
+
