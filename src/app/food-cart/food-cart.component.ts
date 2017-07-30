@@ -4,7 +4,6 @@ import { Location } from '@angular/common';
 import { FoodItem } from '../app-frame/fooditem/fooditem.model';
 import { FoodDataService } from 'app/app-frame/fooditem/fooditem.service';
 import { FoodCartService } from 'app/food-cart/food-cart.service';
-import { FoodCartSummaryComponent } from 'app/food-cart/food-cart-summary.component';
 
 import { Subscription } from "rxjs/Subscription";
 
@@ -28,7 +27,8 @@ export class FoodCartComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.foodCartItems = this.fcs.getCartItems();
-    this.amountPayable =this.fcs.calcAmountPayable()
+    this.amountPayable =this.fcs.calcAmountPayable();
+
     console.log("total=",this.amountPayable)
     this.subscription = this.fcs.getCartSize().subscribe(
       (val) => this.itemsInTheCart = val,
@@ -44,6 +44,7 @@ export class FoodCartComponent implements OnInit, OnDestroy {
 
   onDeleteCartItem(arrayIndextoDelete: number) {
     this.fcs.deleteCartItems(arrayIndextoDelete);
+    this.amountPayable =this.fcs.calcAmountPayable();
   }
 
 onRemoveAllCartItem() {
