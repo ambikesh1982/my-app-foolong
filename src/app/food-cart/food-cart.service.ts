@@ -42,7 +42,32 @@ export class FoodCartService {
   }
 
   calcAmountPayable() {
+   
     // calculate total amount payble for the items present in foodCartItems Array.
+
+     let totalAmountPayable :number =0;
+
+    for(var i in this.foodCartItems) 
+    {  totalAmountPayable += this.foodCartItems[i].foodPrice; }
+
+    console.log("Sum==",totalAmountPayable);
+
+    
+    return totalAmountPayable;
   }
+
+
+  /*
+  calcAmountPayable() :Observable<number>{
+    let total;
+    // calculate total amount payble for the items present in foodCartItems Array.
+    for(var i in this.foodCartItems) 
+    { total = total+this.foodCartItems[i].foodPrice; 
+      //console.log("Sum==",totalAmountPayable);
+    }
+    return this.totalAmountPayable=total;
+    //this.foodCartItems
+  }*/
+
 
 }

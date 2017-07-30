@@ -27,6 +27,7 @@ export class FoodCartSummaryComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }
