@@ -34,6 +34,9 @@ export class FoodCartComponent implements OnInit, OnDestroy {
     this.fcs.deleteCartItems(arrayIndextoDelete);
   }
 
+onRemoveAllCartItem() {
+    this.fcs.removeAllCartItems();
+  }
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

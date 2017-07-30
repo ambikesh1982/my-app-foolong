@@ -1,6 +1,8 @@
 <div style="margin-bottom:100px">
   <md-toolbar>
     <app-nav-back [location]="previousPage"></app-nav-back>
+      <button md-icon-button (click)="onRemoveAllCartItem()">
+          <md-icon >delete_sweep</md-icon></button>
     My Cart({{itemsInTheCart}})
   </md-toolbar>
   <md-card *ngIf="itemsInTheCart === 0" style="text-align:center">

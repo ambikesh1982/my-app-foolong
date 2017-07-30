@@ -29,6 +29,13 @@ export class FoodCartService {
     this.foodCartItems.splice(cartitemidx, 1);
     this.itemsInTheCart.next(this.foodCartItems.length);
   }
+  removeAllCartItems(){
+    console.log(this.foodCartItems);
+    //this.foodCartItems.pop();
+    this.foodCartItems.splice(0,this.foodCartItems.length);
+    this.itemsInTheCart.next(this.foodCartItems.length);
+
+  }
 
   getCartSize():Observable<number>{
     return this.itemsInTheCart.asObservable();
