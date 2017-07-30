@@ -29,7 +29,6 @@ export class FoodCartComponent implements OnInit, OnDestroy {
     this.foodCartItems = this.fcs.getCartItems();
     this.amountPayable =this.fcs.calcAmountPayable();
 
-    console.log("total=",this.amountPayable)
     this.subscription = this.fcs.getCartSize().subscribe(
       (val) => this.itemsInTheCart = val,
       (err) => console.log(err)

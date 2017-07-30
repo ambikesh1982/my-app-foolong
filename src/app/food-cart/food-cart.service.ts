@@ -49,10 +49,6 @@ export class FoodCartService {
 
     for(var i in this.foodCartItems) 
     {  totalAmountPayable += this.foodCartItems[i].foodPrice; }
-
-    console.log("Sum==",totalAmountPayable);
-
-    
     return totalAmountPayable;
   }
 
