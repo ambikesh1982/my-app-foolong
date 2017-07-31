@@ -1,9 +1,10 @@
 <div style="margin-bottom:100px">
   <md-toolbar>
     <app-nav-back [location]="previousPage"></app-nav-back>
-      <button md-icon-button (click)="onRemoveAllCartItem()">
-          <md-icon >delete_sweep</md-icon></button>
     My Cart({{itemsInTheCart}})
+    <button md-icon-button (click)="onRemoveAllCartItem()">
+      <md-icon >delete_sweep</md-icon>
+    </button>
   </md-toolbar>
   <md-card *ngIf="itemsInTheCart === 0" style="text-align:center">
     Your CART is empty: Go Shopping!
@@ -13,12 +14,7 @@
       <app-food-cart-item [index]="i" [foodCartItem]="fcitem" (onCartItemChange)="onDeleteCartItem($event)">
       </app-food-cart-item>
     </div>
-    <button 
-      md-button 
-      *ngIf="itemsInTheCart !== 0" 
-      style="float:right;color:#0d47a1"
-      routerLink="/app-frame" 
-      routerLinkActive="active">
+    <button md-button *ngIf="itemsInTheCart !== 0" style="float:right;color:#0d47a1" routerLink="/app-frame" routerLinkActive="active">
       <h3>Add More Items!</h3>
     </button>
     <app-food-cart-summary *ngIf="itemsInTheCart !== 0" [itemsInTheCart]="itemsInTheCart" [amountPayable]="amountPayable">
