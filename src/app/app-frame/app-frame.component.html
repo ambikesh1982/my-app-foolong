@@ -8,7 +8,10 @@
         <span style="vertical-align:middle;">{{title}}</span>
       </div>
       <div>
-        <app-search-icon></app-search-icon>
+        <!-- <app-search-icon></app-search-icon> -->
+        <a md-icon-button routerLink="/add-fooditem" routerLinkActive="active">
+          <md-icon>add</md-icon>
+        </a>
         <app-cart-icon></app-cart-icon>
         <app-account-icon></app-account-icon>
       </div>
@@ -60,7 +63,5 @@
 </md-sidenav-container>
 
 <div class="done">
-  <a md-fab routerLink="/add-fooditem" routerLinkActive="active">
-    <md-icon>add</md-icon>
-  </a>
+      <app-search-icon></app-search-icon>
 </div>
