@@ -34,7 +34,8 @@ import { FoodCartFabComponent } from './food-cart/food-cart-fab.component';
 import { FoodCartService } from './food-cart/food-cart.service';
 import { AccountIconComponent } from './shared/ui-components/account-icon.component';
 import { SearchIconComponent } from './shared/ui-components/search-icon.component';
-import { LoginComponent } from 'app/user-profile/login/login.component';
+import { AuthService } from "app/user-profile/auth.service";
+
 
 @NgModule({
   declarations: [
@@ -55,8 +56,7 @@ import { LoginComponent } from 'app/user-profile/login/login.component';
     FoodCartComponent,
     FoodCartItemComponent,
     FoodCartSummaryComponent,
-    FoodCartFabComponent,
-    LoginComponent
+    FoodCartFabComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +71,8 @@ import { LoginComponent } from 'app/user-profile/login/login.component';
   ],
   providers: [
     FoodDataService,
-    FoodCartService
+    FoodCartService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

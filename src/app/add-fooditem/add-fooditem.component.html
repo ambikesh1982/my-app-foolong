@@ -46,7 +46,15 @@
         </md-card-content>
     </md-card>
     <md-card *ngSwitchCase="3">
-        3. Pricing and delivery options.
+        <md-card-header>
+        3. Payment and delivery.
+        </md-card-header><br/>
+        <md-card-actions style="display:flex;justify-content: space-between">
+                <a md-icon-button><md-icon color="accent">motorcycle</md-icon></a>
+                <md-icon>directions_run</md-icon>
+                <md-icon>attach_money</md-icon>
+                <md-icon>credit_card</md-icon>
+            </md-card-actions>
     </md-card>
     <md-card *ngSwitchCase="4">
         4. Location Details

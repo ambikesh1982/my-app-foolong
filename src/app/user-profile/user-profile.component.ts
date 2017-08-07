@@ -1,29 +1,48 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Location } from '@angular/common';
 
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
+import { Subscription } from "rxjs/Subscription";
+import { AuthService } from "app/user-profile/auth.service";
 
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.css']
 })
-export class UserProfileComponent implements OnInit {
-  user: Observable<firebase.User>;
+export class UserProfileComponent implements OnInit,OnDestroy {
+subscription: Subscription;
+currentUser: firebase.User;
   constructor(
-    public afAuth: AngularFireAuth,
+    private _auth: AuthService,
     public location: Location
   ) {
-    this.user = afAuth.authState;
+    // this.user$ = afAuth.authState;
   }
-  ngOnInit() { }
+  ngOnInit() { 
+    this.subscription = this._auth.getAuthState().subscribe(
+      (user)=>{
+        this.currentUser = user;
+        console.log('AnonymousUser: ',user);
+      }
+    );
+  }
 
-  login() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  loginAnonymous() {
+    this._auth.loginAnonymous();
   }
-  logout() {
-    this.afAuth.auth.signOut();
+
+  loginGoogle(){
+    this._auth.loginGoogle();
   }
+
+  loginFacebook(){
+
+  }
+
+  logout() { this._auth.logout() }
+
+  ngOnDestroy() { this.subscription.unsubscribe(); }
 }

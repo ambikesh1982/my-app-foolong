@@ -1,23 +1,18 @@
-
 <md-toolbar>
     <app-nav-back [location]="this.location"></app-nav-back>
-   <p *ngIf="!(user | async)">We missed you!</p>
-   <button *ngIf="(user | async)" md-button (click)="logout()">Logout</button>
+   <p *ngIf="!(currentUser)">We missed you!</p>
+   <button *ngIf="currentUser" md-button (click)="logout()">Logout</button>
 </md-toolbar>
-<div class="foolong-col-4 material-icons md-30">
-<md-card *ngIf="(user | async)">
-    <md-card-header>
-        <md-card-title>{{ (user | async)?.displayName }}</md-card-title>
-        <md-card-subtitle>{{ (user | async)?.email }}</md-card-subtitle>
-    </md-card-header>
-        <img md-card-image [src]="(user | async)?.photoURL">
-</md-card>
+<md-list *ngIf="currentUser">
+    <md-list-item>UID: {{ currentUser.uid }}</md-list-item>
+    <md-list-item>DisplayName: {{ currentUser.displayName }}</md-list-item>
+    <md-list-item>EmailID: {{ currentUser.email }}</md-list-item>
+    <img *ngIf="currentUser.photoURL" [src]="currentUser.photoURL" alt="image">
+    <!-- <md-list-item>{{ currentUser.providerData }}</md-list-item> -->
+</md-list>
 
-<md-card *ngIf="!(user | async)">
-    <button  (click)="login()" md-button>Sign in with Google account.</button><br>
-    <button  (click)="login()" md-button disabled>Sign in with Facebook account.</button><br>
-    <button  (click)="login()" md-button disabled>Sign in with Email.</button>
+<md-card *ngIf="!(currentUser)" style="background-color: #FF5722">
+    <button  (click)="loginAnonymous()" md-button>Anonymous-Login.</button><br>
+    <button  (click)="loginGoogle()" md-button >Sign in with Google account.</button><br>
+    <button  (click)="loginFacebook()" md-button disabled>Sign in with Email.</button>
 </md-card>
-</div>
-  
-
