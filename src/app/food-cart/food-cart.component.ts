@@ -6,6 +6,7 @@ import { FoodDataService } from 'app/app-frame/fooditem/fooditem.service';
 import { FoodCartService } from 'app/food-cart/food-cart.service';
 
 import { Subscription } from "rxjs/Subscription";
+import { FirebaseListObservable } from "angularfire2/database";
 
 @Component({
   selector: 'app-food-cart',
@@ -13,7 +14,8 @@ import { Subscription } from "rxjs/Subscription";
 })
 export class FoodCartComponent implements OnInit, OnDestroy {
 
-  foodCartItems: FoodItem[];
+  foodCartItems: FirebaseListObservable<FoodItem[]>;
+  foodCartItems1: FoodItem[];
   previousPage: Location;
   itemsInTheCart: number;
   subscription: Subscription;
@@ -21,34 +23,47 @@ export class FoodCartComponent implements OnInit, OnDestroy {
 
 
   constructor(private fcs: FoodCartService, private location: Location) {
-    this.foodCartItems = [];
+    // this.foodCartItems = [];
     this.previousPage = this.location;
   }
 
   ngOnInit() {
-    this.foodCartItems = this.fcs.getCartItems();
-    this.amountPayable =this.fcs.calcAmountPayable();
-
-    this.subscription = this.fcs.getCartSize().subscribe(
-      (val) => this.itemsInTheCart = val,
-      (err) => console.log(err)
+    this.foodCartItems = this.fcs.getCartItemList();
+    this.subscription = this.fcs.getCartItemList().subscribe(
+      (items)=> {
+        this.itemsInTheCart = items.length;
+        this.fcs.itemsInTheCart.next(this.itemsInTheCart);
+      }
     );
 
-   /*  this.subscription = this.fcs.calcAmountPayable().subscribe(
-      (val) => this.amountPayable = val,
-      (err) => console.log(err)
-    );
-        console.log("total=",this.amountPayable);*/
-}
+    this.amountPayable = this.fcs.calcAmountPayable();
 
-  onDeleteCartItem(arrayIndextoDelete: number) {
-    this.fcs.deleteCartItems(arrayIndextoDelete);
+    // this.subscription = this.fcs.getCartSize().subscribe(
+    //   (val) => this.itemsInTheCart = val,
+    //   (err) => console.log(err)
+    // );
+
+    /*  this.subscription = this.fcs.calcAmountPayable().subscribe(
+       (val) => this.amountPayable = val,
+       (err) => console.log(err)
+     );
+         console.log("total=",this.amountPayable);*/
+  }
+
+  // onDeleteCartItem(arrayIndextoDelete: number) {
+  //   this.fcs.deleteCartItems(arrayIndextoDelete);
+  //   this.amountPayable =this.fcs.calcAmountPayable();
+  // }
+
+  onDeleteCartItem(key: string) {
+    this.fcs.deleteCartItem(key);
     this.amountPayable =this.fcs.calcAmountPayable();
   }
 
-onRemoveAllCartItem() {
+  onRemoveAllCartItem() {
     this.fcs.removeAllCartItems();
   }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

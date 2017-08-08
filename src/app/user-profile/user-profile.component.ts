@@ -24,9 +24,16 @@ currentUser: firebase.User;
   ngOnInit() { 
     this.subscription = this._auth.getAuthState().subscribe(
       (user)=>{
+        if(user){
         this.currentUser = user;
-        console.log('AnonymousUser: ',user);
-      }
+        this._auth.logUser(user);
+        }else {
+          this.currentUser = user;
+          console.log('User not logged in');
+        }
+      },
+      (error)=>console.log('error from user-profile',error),
+      ()=>console.log('done')
     );
   }
 

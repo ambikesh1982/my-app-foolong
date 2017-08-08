@@ -47,7 +47,8 @@ export class FoodDataService {
      }
 
     addToFoodCart(cartitem: FoodItem) {
-        this.fcs.addToCart(cartitem);
+        // this.fcs.addToCart(cartitem);
+        this.fcs.addToCartList(cartitem);
     }
 
     createItem(fd: FoodItem) {
