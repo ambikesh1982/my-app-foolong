@@ -25,16 +25,17 @@ import { Subscription } from "rxjs/Subscription";
   `]
 })
 export class CartIconComponent implements OnInit,OnDestroy {
+
   itemsInTheCart = 0;
   subscription: Subscription;
-  constructor(private fcs: FoodCartService) {
-  }
+
+  constructor(private fcs: FoodCartService) { }
 
   ngOnInit() {
     console.log('ngOnInit: CartIconComponent Initialized');
     this.subscription=this.fcs.getCartSize().subscribe(
       (value)=>{
-        this.itemsInTheCart=value;
+        this.itemsInTheCart = value;
       },
       (err)=>console.log(err)
     );

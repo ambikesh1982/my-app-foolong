@@ -15,53 +15,42 @@ import { FirebaseListObservable } from "angularfire2/database";
 export class FoodCartComponent implements OnInit, OnDestroy {
 
   foodCartItems: FirebaseListObservable<FoodItem[]>;
-  foodCartItems1: FoodItem[];
-  previousPage: Location;
-  itemsInTheCart: number;
+  previousPage: Location = null;
+  itemsInTheCart: number = 0;
   subscription: Subscription;
-  amountPayable: number;
+  amountPayable: number = 0;
 
 
-  constructor(private fcs: FoodCartService, private location: Location) {
-    // this.foodCartItems = [];
+  constructor(
+    private _fcs: FoodCartService, 
+    private location: Location) {
     this.previousPage = this.location;
   }
 
   ngOnInit() {
-    this.foodCartItems = this.fcs.getCartItemList();
-    this.subscription = this.fcs.getCartItemList().subscribe(
+    this.foodCartItems = this._fcs.getCartItemList();
+    this.subscription = this._fcs.getCartItemList().subscribe(
       (items)=> {
+        // Getting length of cart list.
         this.itemsInTheCart = items.length;
-        this.fcs.itemsInTheCart.next(this.itemsInTheCart);
+        // emitting count of items in the cart. All subscriber get the updated value each time.
+        this._fcs.itemsInTheCart$.next(this.itemsInTheCart);
+        // Setting up amountPayable to 0. It will be recalculated based on cart list.
+        this.amountPayable = 0;
+        // Iterating each item in cart list and calculation amountPayable.
+        items.forEach(item => {
+          this.amountPayable = this.amountPayable + item.foodPrice;
+        });
       }
     );
-
-    this.amountPayable = this.fcs.calcAmountPayable();
-
-    // this.subscription = this.fcs.getCartSize().subscribe(
-    //   (val) => this.itemsInTheCart = val,
-    //   (err) => console.log(err)
-    // );
-
-    /*  this.subscription = this.fcs.calcAmountPayable().subscribe(
-       (val) => this.amountPayable = val,
-       (err) => console.log(err)
-     );
-         console.log("total=",this.amountPayable);*/
   }
 
-  // onDeleteCartItem(arrayIndextoDelete: number) {
-  //   this.fcs.deleteCartItems(arrayIndextoDelete);
-  //   this.amountPayable =this.fcs.calcAmountPayable();
-  // }
-
   onDeleteCartItem(key: string) {
-    this.fcs.deleteCartItem(key);
-    this.amountPayable =this.fcs.calcAmountPayable();
+    this._fcs.deleteCartItem(key);
   }
 
   onRemoveAllCartItem() {
-    this.fcs.removeAllCartItems();
+    this._fcs.removeAllCartItems();
   }
 
   ngOnDestroy() {
