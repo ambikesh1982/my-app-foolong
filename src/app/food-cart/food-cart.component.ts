@@ -28,12 +28,14 @@ export class FoodCartComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    console.log("FoodCartComponent-UID: ",this._fcs.UID);
     this.foodCartItems = this._fcs.getCartItemList();
     this.subscription = this._fcs.getCartItemList().subscribe(
       (items)=> {
         // Getting length of cart list.
         this.itemsInTheCart = items.length;
-        // emitting count of items in the cart. All subscriber get the updated value each time.
+        // emitting count of items in the cart. 
+        // All subscriber get the updated value each time.
         this._fcs.itemsInTheCart$.next(this.itemsInTheCart);
         // Setting up amountPayable to 0. It will be recalculated based on cart list.
         this.amountPayable = 0;

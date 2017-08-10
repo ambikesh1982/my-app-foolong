@@ -15,9 +15,7 @@ export class AuthService {
 
     private user$: Observable<firebase.User>;
     private subscription: Subscription;
-    // private currentUser: firebase.User = null;
-    isUserAnonymous = true;
-
+    private CURRENT_ANONYMOUS_USER: firebase.User;
 
     // AngularFire2 returns Observable<firebase.User> to monitor authentication state.
     constructor(private _afAuth: AngularFireAuth) {
@@ -38,7 +36,7 @@ export class AuthService {
         console.log('refreshToken: ',user.refreshToken);
     };
 
-    loginAnonymous() {
+    loginAnonymous(){
         this._afAuth.auth.signInAnonymously()
         .catch((e)=> {
             console.log('Error from auth service',e)
@@ -47,14 +45,16 @@ export class AuthService {
 
     loginGoogle() {
         this._afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
-        .catch((e)=> {
-            console.log(e)
+        .catch( 
+            e=> { 
+                console.log(e) 
             });
     }
     loginFacebook() {
         this._afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
-        .catch((e)=> {
-            console.log(e)
+         .catch( 
+            e=> { 
+                console.log(e) 
             });
     }
 
@@ -62,31 +62,16 @@ export class AuthService {
         return this.user$;
     }
 
+    getCurrentUser(){
+            return this._afAuth.auth.currentUser;
+    }
+
+    isAuthenticated(){
+        return this.user$ != null;
+    }
+
     // Universal LogOut method.
     logout() {
         this._afAuth.auth.signOut();
     }
-
-    // Don't need email login functionality. We can porvide only social login and phone 
-    // number Authentication.
-    
-    // emaiSignup(email: string, password: string) {
-    //     this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-    //         .then(value => {
-    //             console.log('Success!', value);
-    //         })
-    //         .catch(err => {
-    //             console.log('Something went wrong:', err.message);
-    //         });
-    // }
-
-    // loginEmail(email: string, password: string) {
-    //     this.afAuth.auth.signInWithEmailAndPassword(email, password)
-    //         .then(value => {
-    //             console.log('Nice, it worked!');
-    //         })
-    //         .catch(err => {
-    //             console.log('Something went wrong:', err.message);
-    //         });
-    // }
 }

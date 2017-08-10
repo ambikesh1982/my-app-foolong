@@ -14,28 +14,28 @@ import { AuthService } from "app/user-profile/auth.service";
 })
 export class UserProfileComponent implements OnInit,OnDestroy {
 subscription: Subscription;
-currentUser: firebase.User;
+currentUser: firebase.User = null;
   constructor(
-    private _auth: AuthService,
+    public _auth: AuthService,
     public location: Location
   ) {
     // this.user$ = afAuth.authState;
   }
   ngOnInit() { 
-    this.subscription = this._auth.getAuthState().subscribe(
-      (user)=>{
-        if(user){
-        this.currentUser = user;
-        this._auth.logUser(user);
-        }else {
-          this.currentUser = user;
-          console.log('User not logged in');
-        }
-      },
-      (error)=>console.log('error from user-profile',error),
-      ()=>console.log('done')
-    );
-  }
+        this.subscription = this._auth.getAuthState().subscribe(
+          (user)=>{
+            if(user){
+            this.currentUser = user;
+            // this._auth.logUser(user);
+            }else {
+              this.currentUser = user;
+              console.log('User not logged in');
+            }
+          },
+          (error)=>console.log('error from user-profile',error),
+          ()=>console.log('done')
+        );
+    }
 
   loginAnonymous() {
     this._auth.loginAnonymous();
@@ -51,5 +51,5 @@ currentUser: firebase.User;
 
   logout() { this._auth.logout() }
 
-  ngOnDestroy() { this.subscription.unsubscribe(); }
+  ngOnDestroy() {  }
 }

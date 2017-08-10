@@ -6,18 +6,15 @@ actual user-id with auth status active.*/
 import { FoodItem } from "app/app-frame/fooditem/fooditem.model";
 
 export class Cart {
-    _userId: string; //If auth is false, assign _session_id.
+    userId: string; //If auth is false, assign _session_id.
     status: string; //intilized value = active. other values could be in-progress, expired and complete.
     quantity: number;
     amtPayable: number; 
-    cartItems: FoodItem[];
+    cartItems: FoodItem;
 
     // using new Cart(_user_session_id) will initialize the cart with below mentioned values.
-    constructor( _userId: string ) { 
-            this._userId = _userId;
-            this.status = 'active';
-            this.quantity = 0;
-            this.amtPayable = 0.0;
-            this.cartItems = [];
+    constructor( userId: string ) { 
+            this.userId = userId;
+            this.cartItems = null;
     }
  }
