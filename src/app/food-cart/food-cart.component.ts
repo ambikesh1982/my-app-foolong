@@ -7,6 +7,7 @@ import { FoodCartService } from 'app/food-cart/food-cart.service';
 
 import { Subscription } from "rxjs/Subscription";
 import { FirebaseListObservable } from "angularfire2/database";
+import { AuthService } from "app/user-profile/auth.service";
 
 @Component({
   selector: 'app-food-cart',
@@ -22,29 +23,27 @@ export class FoodCartComponent implements OnInit, OnDestroy {
 
 
   constructor(
-    private _fcs: FoodCartService, 
+    private _fcs: FoodCartService,
+    private _auth: AuthService,
     private location: Location) {
     this.previousPage = this.location;
   }
 
   ngOnInit() {
     console.log("FoodCartComponent-UID: ",this._fcs.UID);
-    this.foodCartItems = this._fcs.getCartItemList();
-    this.subscription = this._fcs.getCartItemList().subscribe(
-      (items)=> {
-        // Getting length of cart list.
-        this.itemsInTheCart = items.length;
-        // emitting count of items in the cart. 
-        // All subscriber get the updated value each time.
-        this._fcs.itemsInTheCart$.next(this.itemsInTheCart);
-        // Setting up amountPayable to 0. It will be recalculated based on cart list.
-        this.amountPayable = 0;
-        // Iterating each item in cart list and calculation amountPayable.
-        items.forEach(item => {
-          this.amountPayable = this.amountPayable + item.foodPrice;
-        });
-      }
-    );
+    this._auth.getAuthState().subscribe(
+      (user)=>{
+        this.foodCartItems = this._fcs.getCartItemList();
+        this.subscription = this._fcs.getCartItemList().subscribe(
+          (items)=> {
+            this.itemsInTheCart = items.length;
+            this._fcs.itemsInTheCart$.next(this.itemsInTheCart);
+            this.amountPayable = 0;
+            items.forEach(item => {
+              this.amountPayable = this.amountPayable + item.foodPrice;
+            });
+          });
+      });
   }
 
   onDeleteCartItem(key: string) {

@@ -14,14 +14,6 @@ export class AppComponent {
   uid = 'PENDING_UID';
 
   constructor( private _auth: AuthService, private _appCart: FoodCartService){
-    _auth.getAuthState().subscribe(
-      (user) => {
-        if(user){
-          _appCart.initializeAppCart(user.uid);
-        } 
-      },
-      (e) => console.log(e)
-    );
     console.log("AppComponent-Constructor call");
   }
 }

@@ -3,6 +3,7 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
 import { Observable } from "rxjs/Observable";
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
+
 import { FoodItem } from 'app/app-frame/fooditem/fooditem.model';
 import { Cart } from "app/food-cart/cart.model";
 import { AuthService } from "app/user-profile/auth.service";
@@ -20,6 +21,7 @@ export class FoodCartService {
   public itemsInTheCart$ = new BehaviorSubject(0);
   private cartItemList$: FirebaseListObservable<FoodItem[]>;
   private cartObject$: FirebaseListObservable<Cart[]>;
+  private cartKey$: FirebaseListObservable<any>;
   private item$: FirebaseObjectObservable<FoodItem>;
   private foodCartItems: FoodItem[];
   private basePath = '/foodz9Cart';
@@ -31,11 +33,13 @@ export class FoodCartService {
     private _fdb: AngularFireDatabase,
     private _auth: AuthService
   ) {
+    console.log('in cart service constructor: ', this._auth.getAuthState());
     this.foodCartItems = [];
     this._auth.getAuthState().subscribe(
       (user)=> {
         if(user){
           this.UID = user.uid;
+          this.basePathItem = `/foodz9Cart/${this.UID}`;
         } else {
           this.UID = null;
         }
@@ -44,16 +48,11 @@ export class FoodCartService {
     )
   }
 
-  initializeAppCart(uid: string){
-    this.cartObject$ = this._fdb.list(this.basePath);
-    this.CARTKEY = this.cartObject$.push(new Cart(uid)).key;
-    this.basePathItem = `/foodz9Cart/${this.CARTKEY}/cartitems/`;
-  }
-
   getCartItemList(query = {}): FirebaseListObservable<FoodItem[]> {
     this.cartItemList$ = this._fdb.list(this.basePathItem, {
       query: query
     });
+     
     return this.cartItemList$;
   }
 
