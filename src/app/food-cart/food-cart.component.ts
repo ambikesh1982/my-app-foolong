@@ -18,32 +18,28 @@ import 'rxjs';
 })
 export class FoodCartComponent implements OnInit, OnDestroy {
 
-  // foodCartItems: FirebaseListObservable<FoodItem[]>;
-  foodCartItems: FoodItem[];
+  foodCartItems: FirebaseListObservable<FoodItem[]>;
   previousPage: Location = null;
   itemsInTheCart: number = 0;
   subscription: Subscription;
   amountPayable: number = 0;
-  isUserIn;
-  userId: firebase.User;
-
 
   constructor(
     private _fcs: FoodCartService,
     private _auth: AuthService,
-    private location: Location) 
-    {
-      console.log('In FoodCartComponent Constructor call.');
+    private location: Location) {
       this.previousPage = this.location;
+      console.log('In FoodCartComponent Constructor call.');
   }
 
   ngOnInit() {
 
     this.subscription = this._auth.getAuthState()
-    .flatMap( (res: firebase.User) => this._fcs.getCartItemList(res))
-    .subscribe(
-      (items)=> {
-        this.foodCartItems = items;
+      .flatMap(
+      (
+        res: firebase.User) => this.foodCartItems = this._fcs.getCartItemList()
+      ).subscribe(
+      (items) => {
         this.itemsInTheCart = items.length;
         this._fcs.itemsInTheCart$.next(this.itemsInTheCart);
         this.amountPayable = 0;

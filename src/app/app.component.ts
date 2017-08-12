@@ -9,27 +9,27 @@ import { Subscription } from "rxjs/Subscription";
   encapsulation: ViewEncapsulation.None
 })
 
-export class AppComponent implements OnInit,OnDestroy {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'Foodz9';
   uid = 'PENDING_UID';
-  subscription : Subscription;
+  subscription: Subscription;
   itemsInTheCart: number = 0;
 
-  constructor( private _auth: AuthService, private _appCart: FoodCartService){
+  constructor(private _auth: AuthService, private _appCart: FoodCartService) {
     console.log("AppComponent-Constructor call");
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.subscription = this._auth.getAuthState()
-    .flatMap( (res) => this._appCart.getCartItemList(res))
-    .subscribe(
-      (items)=> {
-        this.itemsInTheCart = items.length;
-        this._appCart.itemsInTheCart$.next(this.itemsInTheCart);
-      });
+      .flatMap((res) => this._appCart.getCartItemList(res))
+      .subscribe(
+        (items) => {
+          this.itemsInTheCart = items.length;
+          this._appCart.itemsInTheCart$.next(this.itemsInTheCart);
+        });
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 }
