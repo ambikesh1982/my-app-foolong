@@ -16,7 +16,7 @@
 
     <div 
       class="foolong-col-4 foolong-col-m-6" 
-      *ngFor="let fcitem of (foodCartItems|async); let i = index">
+      *ngFor="let fcitem of foodCartItems; let i = index">
       <!-- Each item in cart takes 2 inputs and emits a change event  -->
       <app-food-cart-item 
         [index]="i" 

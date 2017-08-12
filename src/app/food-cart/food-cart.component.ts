@@ -8,6 +8,9 @@ import { FoodCartService } from 'app/food-cart/food-cart.service';
 import { Subscription } from "rxjs/Subscription";
 import { FirebaseListObservable } from "angularfire2/database";
 import { AuthService } from "app/user-profile/auth.service";
+import { Observable } from "rxjs/Observable";
+import * as firebase from 'firebase/app';
+import 'rxjs';
 
 @Component({
   selector: 'app-food-cart',
@@ -15,34 +18,38 @@ import { AuthService } from "app/user-profile/auth.service";
 })
 export class FoodCartComponent implements OnInit, OnDestroy {
 
-  foodCartItems: FirebaseListObservable<FoodItem[]>;
+  // foodCartItems: FirebaseListObservable<FoodItem[]>;
+  foodCartItems: FoodItem[];
   previousPage: Location = null;
   itemsInTheCart: number = 0;
   subscription: Subscription;
   amountPayable: number = 0;
+  isUserIn;
+  userId: firebase.User;
 
 
   constructor(
     private _fcs: FoodCartService,
     private _auth: AuthService,
-    private location: Location) {
-    this.previousPage = this.location;
+    private location: Location) 
+    {
+      console.log('In FoodCartComponent Constructor call.');
+      this.previousPage = this.location;
   }
 
   ngOnInit() {
-    console.log("FoodCartComponent-UID: ",this._fcs.UID);
-    this._auth.getAuthState().subscribe(
-      (user)=>{
-        this.foodCartItems = this._fcs.getCartItemList();
-        this.subscription = this._fcs.getCartItemList().subscribe(
-          (items)=> {
-            this.itemsInTheCart = items.length;
-            this._fcs.itemsInTheCart$.next(this.itemsInTheCart);
-            this.amountPayable = 0;
-            items.forEach(item => {
-              this.amountPayable = this.amountPayable + item.foodPrice;
-            });
-          });
+
+    this.subscription = this._auth.getAuthState()
+    .flatMap( (res: firebase.User) => this._fcs.getCartItemList(res))
+    .subscribe(
+      (items)=> {
+        this.foodCartItems = items;
+        this.itemsInTheCart = items.length;
+        this._fcs.itemsInTheCart$.next(this.itemsInTheCart);
+        this.amountPayable = 0;
+        items.forEach(item => {
+          this.amountPayable = this.amountPayable + item.foodPrice;
+        });
       });
   }
 

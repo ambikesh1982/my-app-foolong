@@ -66,9 +66,11 @@ export class AuthService {
             return this._afAuth.auth.currentUser;
     }
 
-    isAuthenticated(){
-        return this.user$ != null;
-    }
+    isAuthenticated(): Observable<boolean>{
+        return this.user$.map(
+            (user) => user && user.uid !== undefined)
+            } 
+
 
     // Universal LogOut method.
     logout() {
