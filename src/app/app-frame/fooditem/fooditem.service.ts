@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { AngularFireDatabaseModule, FirebaseObjectObservable, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireModule} from 'angularfire2';
+import * as firebase from 'firebase';
 
 import { FoodItem } from 'app/app-frame/fooditem/fooditem.model';
 import { FoodCartService } from 'app/food-cart/food-cart.service';
+import { Image } from "app/add-fooditem/image.model";
 
 @Injectable()
 export class FoodDataService {
@@ -16,6 +19,7 @@ export class FoodDataService {
     private basePath = '/foodz9Items';
     private foodItemList: FirebaseListObservable<FoodItem[]>;
     private foodItemObject: FirebaseObjectObservable<FoodItem>;
+    
 
     constructor(
         private fcs: FoodCartService,
@@ -51,9 +55,36 @@ export class FoodDataService {
         this.fcs.addToCartList(cartitem);
     }
 
+    preparePost(image: Image)
+    {
+
+        
+    }
     createItem(fd: FoodItem) {
         this.foodItemList.push(fd);
     }
+
+    pushUpload(upload : Image)
+    {
+        let storageRef = firebase.storage().ref();
+        let uploadTask = storageRef.child(`${this.basePath}/${upload}`).put(upload.file);
+
+        uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
+        (snapshot)=> {
+            upload.progress  = (snapshot.bytesTransferred/snapshot.totalBytes)*100
+        },
+        (error) => {
+            console.log(error);
+        },
+        ()=> {
+            upload.url = uploadTask.snapshot.downloadURL;
+            upload.name = upload.file.name;
+
+            //this.saveFileData(upload);
+        }
+        );
+    
+}
 
 
 }

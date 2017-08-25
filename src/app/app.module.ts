@@ -1,7 +1,7 @@
 // Angular core modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,7 +20,6 @@ import { AppSidenavComponent } from './app-frame/app-sidenav.component';
 import { FoodItemComponent } from './app-frame/fooditem/fooditem.component';
 import { FoodDetailComponent } from './app-frame/fooditem/fooditem-detail/fooditem-detail.component';
 import { AddFoodItemComponent } from './add-fooditem/add-fooditem.component';
-import { PhotoUploadComponent } from './add-fooditem/photo-upload/photo-upload.component';
 import { SearchComponent } from './search/search.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { CheckoutComponent } from './checkout/checkout.component';
@@ -45,7 +44,7 @@ import { AuthService } from "app/user-profile/auth.service";
     FoodItemComponent,
     FoodDetailComponent,
     AddFoodItemComponent,
-    PhotoUploadComponent,
+    
     SearchComponent,
     UserProfileComponent,
     CheckoutComponent,
@@ -67,7 +66,8 @@ import { AuthService } from "app/user-profile/auth.service";
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    ReactiveFormsModule
   ],
   providers: [
     FoodDataService,

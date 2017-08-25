@@ -34,6 +34,13 @@ export class FoodCartComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
+
+    this._auth.getAuthState().subscribe(
+      (user) => {
+        this._fcs.getCartItemList().subscribe()
+      }
+    )
+
     this.subscription = this._auth.getAuthState()
       .flatMap(
       (
