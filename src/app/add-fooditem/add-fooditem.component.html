@@ -15,7 +15,7 @@
             <md-card-actions style="display:flex; justify-content: space-between; border: 2px dashed #F4511E;">
             
                 <form id="image-form" action="#">
-                <button md-raised-button color="accent" style="float:center" (click)="chooseFile.click()">Upload Photo</button>
+                <button md-raised-button color="accent" style="float:initial" (click)="chooseFile.click()">Upload Photo</button>
                 <input #chooseFile style="display:none;" type="file" accept="image/*,capture=camera" (change)="uploadSingleFileToStorage($event)">
                         <!--     <button md-raised-button color="accent" (click)="uploadSingleFileToStorage()"><md-icon>image</md-icon>Upload Photo</button>
    <button md-button><md-icon>add_a_photo</md-icon> Use Camera</button> !-->

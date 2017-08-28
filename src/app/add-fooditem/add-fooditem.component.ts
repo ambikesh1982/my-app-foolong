@@ -120,6 +120,7 @@ export class AddFoodItemComponent implements OnInit {
         this.selectedFileUpload = new Image(file);
         if (this.authService.checkSignedIn()) {
             this.foodService.saveToFirebaseStorage(this.selectedFileUpload);
+            
            
         }
     }

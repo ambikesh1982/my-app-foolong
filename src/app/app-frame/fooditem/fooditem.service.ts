@@ -65,13 +65,13 @@ export class FoodDataService {
     createItem(fd: FoodItem) {
         this.foodItemList.push(fd);
     }
-
+    public fileindex = Math.random();
     saveToFirebaseStorage(inputImage : Image)
     {
         const LOADING_IMAGE_URL = 'https://www.google.com/images/spin-32.gif';
         let storageRef = firebase.storage().ref();
-        let uploadImageTask = storageRef.child(`${this.basePath}/${inputImage.name}`).put(inputImage.file);
-
+        let uploadImageTask = storageRef.child(`${this.basePath}/${this.fileindex}/${inputImage.name}`).put(inputImage.file);
+        this.fileindex=Math.random()*43;
         uploadImageTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
         (snapshot)=> {
             inputImage.progress  = (snapshot.bytesTransferred/snapshot.totalBytes)*100
