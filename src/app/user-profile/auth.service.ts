@@ -8,6 +8,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from "rxjs/Observable";
 import { Subscription } from "rxjs/Subscription";
 import * as firebase from 'firebase/app';
+import { MdSnackBar } from '@angular/material';
+
 
 @Injectable()
 
@@ -18,7 +20,8 @@ export class AuthService {
     private CURRENT_ANONYMOUS_USER: firebase.User;
 
     // AngularFire2 returns Observable<firebase.User> to monitor authentication state.
-    constructor(private _afAuth: AngularFireAuth) {
+    constructor(private _afAuth: AngularFireAuth,
+                private snackBar: MdSnackBar) {
         this.user$ = _afAuth.authState;
     }
 
@@ -76,4 +79,22 @@ export class AuthService {
     logout() {
         this._afAuth.auth.signOut();
     }
+      // Returns true if user is signed-in. Otherwise false and displays a message.
+  checkSignedIn() {
+    // Return true if the user is signed in Firebase
+    if (this.user$) {
+      return true;
+    }
+    this.snackBar
+      .open('You must sign-in first', 'Sign in', {
+        duration: 5000
+      })
+      .onAction()
+      .subscribe(() => this.loginGoogle(), 
+                ()=>this.loginFacebook(),
+                ()=>this.loginAnonymous()
+                );
+
+    return false;
+  };
 }

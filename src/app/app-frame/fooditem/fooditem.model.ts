@@ -1,3 +1,6 @@
+
+import { Image } from "app/add-fooditem/image.model";
+
 export class FoodItem {
     constructor(
         public foodId: number,
@@ -8,5 +11,5 @@ export class FoodItem {
         public foodCuisine: string,
         public foodPrice: number,
         public foodServing: number,
-        public foodImageURL: string) { }
+        public foodImageURL: Image) { }
 }
