@@ -79,7 +79,7 @@ export class AddFoodItemComponent implements OnInit {
 
         });
     }
-
+/*
     selectFileToUpload(event: any) {
         event.preventDefault();
         this.selectedFiles = event.target.files[0];
@@ -97,15 +97,30 @@ export class AddFoodItemComponent implements OnInit {
         }
         console.log("filename-", this.selectedFiles);
 
-    }
+    }*/
 
-    uploadSingleFileToStorage() {
+    uploadSingleFileToStorage(event: any) {
+         event.preventDefault();
+        this.selectedFiles = event.target.files[0];
+
+        // Clear the selection in the file picker input.
+        const imageForm = <HTMLFormElement>document.getElementById('image-form');
+        imageForm.reset();
+
+        // Checking if the selected file is an image.
+        if (!this.selectedFiles.type.match('image.*')) {
+            this.snackBar.open('You can only share images', null, {
+                duration: 10000
+            });
+            return;
+        }
+        console.log("filename-", this.selectedFiles);
+
         let file = this.selectedFiles;
         this.selectedFileUpload = new Image(file);
         if (this.authService.checkSignedIn()) {
             this.foodService.saveToFirebaseStorage(this.selectedFileUpload);
-            setTimeout(()=>{this.uploadedURL=this.foodService.imageDetails.url;}, 5000);
-            //this.uploadedURL=this.foodService.imageDetails.url;
+           
         }
     }
 

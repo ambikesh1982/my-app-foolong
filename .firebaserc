@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "foodz9-88685"
+    "default": "foodz9-88685",
+    "foodz9Dev": "foodz9-a4edc"
   }
 }

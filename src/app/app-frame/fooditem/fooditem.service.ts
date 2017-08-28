@@ -70,7 +70,7 @@ export class FoodDataService {
     {
         const LOADING_IMAGE_URL = 'https://www.google.com/images/spin-32.gif';
         let storageRef = firebase.storage().ref();
-        let uploadImageTask = storageRef.child(`${this.basePath}/${inputImage}`).put(inputImage.file);
+        let uploadImageTask = storageRef.child(`${this.basePath}/${inputImage.name}`).put(inputImage.file);
 
         uploadImageTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
         (snapshot)=> {
